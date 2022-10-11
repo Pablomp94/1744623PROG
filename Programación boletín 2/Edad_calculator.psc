@@ -51,7 +51,20 @@ Algoritmo Actividad1_Edad_calculator
 	
 	Escribir " 															"
 	
-	Leer año
+	Repetir
+		
+	 Leer año
+	 
+	 Si año > 2017 Entonces
+		 Escribir  " El número de años establecido es demasiado bajo "
+	 FinSi
+		 
+	 Si año < 1925 Entonces
+		 Escribir  " El número de años establecido es demasiado grande "
+	 FinSi
+		 
+	Hasta Que año >= 1925 y año <= 2017 	 
+	
 	
 	Escribir " Ahora que están todos los datos personales deberás de introducir la fecha actual "
 	
