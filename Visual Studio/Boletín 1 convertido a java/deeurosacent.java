@@ -6,6 +6,12 @@
 import java.util.Scanner; 
     public class deeurosacent{
         
-        System.out.println("Introduzca la canidad de euros")
+        public static void main(String[] args){
+        System.out.println("Introduzca la cantidad de euros")
 
+
+
+
+
+        }
 }
