@@ -20,7 +20,7 @@ public static void main(String[] args) {
     numero = sc.nextInt();
 
     
-    while (numero != aleatorio){
+    while (numero != aleatorio && fallos<9){
 
         if (numero > aleatorio){
 
@@ -45,6 +45,14 @@ public static void main(String[] args) {
 
         System.out.println("Acertaste en " + fallos + " fallos.");
     }
+
+    if (fallos == 9){
+
+        System.out.println("Fallaste la prueba por alcanzar el numero maximo de fallos (10).");
+    }
+
 }
+
+
 
 }
