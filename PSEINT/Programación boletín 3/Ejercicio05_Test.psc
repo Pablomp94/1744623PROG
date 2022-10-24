@@ -55,7 +55,7 @@ Algoritmo Ejercicio05_Test
 	
 	Leer respuesta3
 	
-	Si respuesta3 = "A" o respuesta1 = "a" Entonces
+	Si respuesta3 = "A" o respuesta3 = "a" Entonces
 		Escribir ("Enhorabuena Acertastes") 
 		fallo3 = 0 
 	SiNo 	
