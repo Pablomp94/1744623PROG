@@ -15,6 +15,8 @@ public static void main(String[] args) {
 
     int numero;
 
+    int fallos = 0; 
+    
     numero = sc.nextInt();
 
     
@@ -31,13 +33,17 @@ public static void main(String[] args) {
         }
 
         System.out.println("Vuelvelo a intentar");
+
+        fallos++;
+
+        System.out.println("De momento tienes " + fallos + " fallos.");
         
         numero = sc.nextInt();
     }
 
     if (numero == aleatorio){
 
-        System.out.println("Acertaste");
+        System.out.println("Acertaste en " + fallos + " fallos.");
     }
 }
 
