@@ -6,9 +6,14 @@ public class Numerospares20numeros{
 
     public static void main(String[] args){
 
-    int numero = 0;
+   System.out.println("Introduce el numero para calcular sus pares en sus proximos 20 numeros");
+   
+    Scanner sc = new Scanner(System.in);
+    
+    int numero = sc.nextInt();
 
-    while (numero <= 20){
+    int limite = numero + 20;
+    while (numero <= limite){
 
         if (numero % 2 == 0 ){
 
