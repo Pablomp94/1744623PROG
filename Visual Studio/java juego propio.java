@@ -1,19 +1,21 @@
 import java.util.Scanner;
 
 public class javajuegopropio {
-    
-    public static void main(String[] args){
+     
+    /**
+     * @param args
+     */
+    public static void main(String[] args) {
 
     Scanner sc = new Scanner(System.in);
 
+    System.out.println("*************************");
     System.out.println("Bienvenido a Survey");
     System.out.println("*************************");
     System.out.println("                         ");
     System.out.println("Introduzca el nombre de su personaje");
 
-    String nombre , genero ;
-
-    nombre = sc.nextLine();
+    String nombre = sc.nextLine();
 
     System.out.println("Muy bien " + nombre + " , ahora introduzca su genero");
 
@@ -21,9 +23,10 @@ public class javajuegopropio {
     System.out.println("B) Chica");
     System.out.println("C) Chique");
 
-    genero = sc.nextLine();
+     genero = sc.nextLine();
     
-    if (genero = "C"){
+
+    if ( genero = "C" ){
     System.out.println("Enserio, la gente como tu no la soporto, y la gente de por aqui aun menos.");
     System.out.println("Esto te puede meter en lios mas de una vez, andate con cuidado");
 
