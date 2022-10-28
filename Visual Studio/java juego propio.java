@@ -2,9 +2,6 @@ import java.util.Scanner;
 
 public class javajuegopropio {
      
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
 
     Scanner sc = new Scanner(System.in);
