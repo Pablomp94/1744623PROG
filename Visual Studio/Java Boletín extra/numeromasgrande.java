@@ -1,7 +1,7 @@
 //Pablo Morales Puertas NRE: 1744623//
 //Mostrar el numero mas grande de 10 pedidos//
 
-import Java.util.Scanner;
+import java.util.Scanner;
 
 public class numeromasgrande {
 
@@ -14,24 +14,24 @@ public class numeromasgrande {
 
         int veces = 0;
 
-        int numero1, numero2;
+        int numero, mayor, contador;
 
-        for(veces = 0; veces <= 5; veces++){
-
-            numero1 = sc.nextint();
+        contador = 0;
+        mayor = 0;
         
-            numero2 = sc.nextint();
+        for(contador = 0; contador < 11; contador ++){
+            numero = sc.nextnt();
 
+            if(numero > mayor){
 
+                mayor = numero;
+
+                contador ++;
+            }
 
         }
-
-
-
-
-
-
-
+        
+        System.out.println("El numero mas grande introducido es: " + mayor);
 
 
     }
