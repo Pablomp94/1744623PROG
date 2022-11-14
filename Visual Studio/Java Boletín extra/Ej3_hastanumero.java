@@ -4,7 +4,7 @@
 
 import java.util.Scanner;
 
-public class hastanumero {
+public class Ej3_hastanumero {
     
 
     public static void main(String[] args){

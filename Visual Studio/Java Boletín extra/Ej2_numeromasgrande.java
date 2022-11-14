@@ -3,7 +3,7 @@
 
 import java.util.Scanner;
 
-public class numeromasgrande {
+public class Ej2_numeromasgrande {
 
     public static void main(String[] args){
 
@@ -16,17 +16,15 @@ public class numeromasgrande {
 
         int numero, mayor, contador;
 
-        contador = 0;
         mayor = 0;
         
-        for(contador = 0; contador < 11; contador ++){
-            numero = sc.nextnt();
+        for(contador = 0; contador < 10; contador ++){
+            
+            numero = sc.nextInt();
 
             if(numero > mayor){
 
-                mayor = numero;
-
-                contador ++;
+                mayor = numero;     
             }
 
         }
