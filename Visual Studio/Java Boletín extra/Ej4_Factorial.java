@@ -17,7 +17,7 @@ public class Ej4_Factorial {
 
         veces = 1; 
 
-       
+       mult1 = numero;
 
         System.out.println("Realizando factorial de " + numero);
 
