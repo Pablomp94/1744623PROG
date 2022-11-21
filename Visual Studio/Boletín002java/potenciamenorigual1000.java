@@ -1,5 +1,5 @@
 //Pablo Morales Puertas NRE: 1744623//
-//Introducir programa que calcule una potencia sin usar la potencia// 
+//Introducir programa que calcule una potencia sin usar la potencia y que la potencia sea menor o igual a 1000// 
 
 
 
