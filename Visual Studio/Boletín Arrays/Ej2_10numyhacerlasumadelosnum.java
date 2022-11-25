@@ -9,6 +9,8 @@ public class Ej2_10numyhacerlasumadelosnum {
 
     Scanner sc = new Scanner(System.in);
 
+
+            //Variables//
     int i, suma;
 
     i = 0;
@@ -17,6 +19,8 @@ public class Ej2_10numyhacerlasumadelosnum {
 
     int[] num = new int[10];
 
+        
+            //Codigo//
     for(i = 0; i <=9 ; i++){
 
         System.out.println("Introduce el valor " + (i + 1) + " :");
