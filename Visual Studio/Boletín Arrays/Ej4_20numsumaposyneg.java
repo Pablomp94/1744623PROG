@@ -29,15 +29,17 @@ public class Ej4_20numsumaposyneg {
             num[i] = sc.nextInt();
 
             if(num[i] > 0){
-                sumapos ++;
+                sumapos = sumapos + num[i]; 
+                
             }
             if(num[i] < 0){
-                sumaneg++;
+                sumaneg = sumaneg + num[i];
+                
             }
         }
 
-        System.out.println("El numero de positivos introducidos es de :" + sumapos);
-        System.out.println("El numero de negativos introducidos es de :" + sumaneg);
+        System.out.println("La suma de los numeros positivos introducidos es de :" + sumapos);
+        System.out.println("La suma de los numeros negativos introducidos es de :" + sumaneg);
 
     }
 }
