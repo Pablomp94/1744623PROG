@@ -21,6 +21,7 @@ public class suma100num {
         
         numero = sc.nextInt();
         
+        
         tope = numero;
     
 
@@ -31,17 +32,19 @@ public class suma100num {
 
         }
 
+        
             
-        for( ; tope <= (numero + 99) ; tope ++){
+        for(tope = numero + 1 ; tope <= (numero + 100) ; tope ++){
 
             suma = tope + suma;
 
         }
         
+
     
         System.out.println(tope);
         System.out.println(suma);
         
-        System.out.println("La suma de los 100 numeros entre " + numero + " y " + tope + " es " + suma); 
+        System.out.println("La suma de los 100 numeros entre " + numero + " y " + (tope -1) + " es " + suma); 
     }
 }
