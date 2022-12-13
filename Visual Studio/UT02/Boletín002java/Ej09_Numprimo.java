@@ -6,13 +6,34 @@ public class Ej09_Numprimo {
     
     public static void main(String[] args) {
         
-        int num;
+                //Variables//
+        int num, comprobacion, resto, i;
 
-        num = 2;
+        
 
-        for( ; num <= 100 ; num ++){
+        comprobacion = 0; 
 
-            if(num )
+        
+                //Codigo//
+        
+        for( num = 2 ; num <= 100 ; num++){
+
+            for( i = 0; i < num ; i ++){ 
+                
+                resto = num % (0 + 1); 
+            
+                if(resto == 0){
+                    comprobacion++;
+                }
+
+                if((num % 2 == 0) && (num != 2)) {
+                    comprobacion++; 
+                }
+            }   
+            
+            if(comprobacion <= 2){
+                System.out.println(num);
+            }
         }
     }
 }
