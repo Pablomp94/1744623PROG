@@ -2,7 +2,7 @@
 
 import java.util.Scanner;
 
-public class introducircodigojava1234{
+public class Ej01_introducircodigojava1234{
 
     public static void main(String[] args){
 
