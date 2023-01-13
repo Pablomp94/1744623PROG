@@ -1,6 +1,7 @@
 public class Boletinarrayclase {
 
-    import java.util.*;
+import java.util.Scanner;
+import java.util.Arrays; 
 
     public class App {
     

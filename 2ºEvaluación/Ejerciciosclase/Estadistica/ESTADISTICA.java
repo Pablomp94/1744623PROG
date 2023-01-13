@@ -1,6 +1,8 @@
+import java.util.*;
+
 public class ESTADISTICA {
 
-    private List<Int> listaNumeros;
+    private List<Integer> listaNumeros;
 
     public ESTADISTICA() {
 
@@ -8,11 +10,11 @@ public class ESTADISTICA {
 
     }
 
-    public Int mayor() {
+    public int mayor() {
         return 8;
     }
 
-    public Int menor() {
+    public int menor() {
         return 1;
     }
 
