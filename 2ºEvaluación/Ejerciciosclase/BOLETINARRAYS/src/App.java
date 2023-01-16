@@ -23,7 +23,9 @@ public class App {
             switch  (opcion) {
                 case 1:
                 System.out.println("has elegido 1");
-
+                System.out.println(" ");
+                //Metodo rotar//
+                System.out.println("_________________________");
                 break;
                 case 2:
                 System.out.println("has elegido 2");
@@ -46,13 +48,16 @@ public class App {
                 miBoletin.mediaArray();
                 System.out.println("_________________________");
                 break;
+                case 6:
+
+                break;
                 default:
                 break;
             }
             
         } while (opcion!=0);
-        
-
+        System.out.println(" ");
+        System.out.println("Salistes");
         
     }
 }
