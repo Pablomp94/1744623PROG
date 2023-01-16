@@ -2,6 +2,12 @@ import java.util.*;
 
 public class ESTADISTICA {
 
+    int numeromayor, numeromenor, suma;
+
+    double media, i;
+
+
+
     private List<Integer> listaNumeros;
 
     public ESTADISTICA() {
@@ -11,15 +17,41 @@ public class ESTADISTICA {
     }
 
     public int mayor() {
-        return 8;
+        
+        for(Integer numero: listaNumeros){
+
+            if(numero > numeromayor){
+                numeromayor = numero; 
+            }
+        }
+        return numeromayor;
     }
 
     public int menor() {
-        return 1;
+
+        numeromenor = 999999999;
+        
+        for(Integer numero: listaNumeros){
+            
+            if(numero < numeromenor){
+                numeromenor = numero;
+            }        
+        } 
+        return numeromenor;
     }
 
     public double media() {
-        return 3.6;
+
+        i = 0;
+        
+        for(Integer numero: listaNumeros){
+
+            i = numero + i;
+        }
+        
+        media = i / listaNumeros.size();
+        
+        return media;
     }
 
 }
