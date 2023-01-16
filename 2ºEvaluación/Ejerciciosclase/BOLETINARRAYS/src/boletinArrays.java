@@ -1,32 +1,72 @@
-import java.util.Arrays;
-import java.util.Scanner;
+//Pablo Morales Puertas NRE: 1744623//
+
+import java.util.*;
 
 public class boletinArrays {
 
     //variable estatica para definir el tamaño del aray
     private static int TAMANYO=10;
     // Guardo el array con el que voy a trabajar
-    private int[] miArray = new int[TAMANYO];
-    private int mayor;
-    private int menor;
+    private int[] miArray = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+
+
+    private  int i,menorArray, mayorArray;
+    
+
     
     public int[] rotarArray(int numeros[]) {
         
         int numeroActual = numeros[numeros.length-1];
-        for (int i=numeros.length-1; i>0; i--) {                         
+        for (i=numeros.length-1; i>0; i--) {                         
             numeros[i] = numeros[i-1];                
         }
         numeros[0] = numeroActual;
-        return numeros;
-        
+        return numeros;        
     }
 
-    public int[] generaArray () {
-        int[] numeros = new int[] {8, 10, 2, 3, 5};
-        return numeros;
+    
+    public void mediaArray(){
+
+        int suma = 0;
+
+        for(i = 0; i < TAMANYO; i++){
+
+            suma = suma + miArray[i];
+        }
+
+        double division;
+        division = (double)suma / (double)TAMANYO;
+
+        System.out.println("La media es " + division);
     }
 
-    public void funcion() {
-       
+
+    public void mayorArray(){
+
+        int mayor=-999999999;
+
+        for(i=0; i < TAMANYO; i ++){
+
+            if(miArray[i] > mayor){
+                mayor = miArray[i];
+            }
+        }
+        System.out.println("El numero mayor es: " + mayor);
     }
+
+    public void menorArray(){
+
+        int menor = 999999999;
+
+        for(i=0; i < TAMANYO; i++){
+
+            if(miArray[i] < menor){
+                menor = miArray[i];
+            }
+        }
+        System.out.println("El numero menor es: " + menor);
+
+
+    }
+
 }
