@@ -23,7 +23,7 @@ public class Ej5 {
 
         for(int i = 0; i < inverso.length; i++){
 
-            inverso[i] = (100 - i);
+            inverso[i] = array[(99 - i)];
         }
         System.out.println("De 100 a 1: ");
         System.out.println(Arrays.toString(inverso));
