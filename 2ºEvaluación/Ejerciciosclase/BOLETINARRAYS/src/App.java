@@ -14,13 +14,9 @@ public class App {
 
             //Introducir el Array con valores que el cliente escoja//
             
-            
+            //miBoletin.crearArray();
 
-
-
-
-
-
+            //Programa//
 
             System.out.println("ESCRIBE TU OPCIÓN:"); 
             System.out.println("1: Desplazar el ARRAY");

@@ -3,25 +3,43 @@
 import java.util.*;
 
 public class boletinArrays {
-
+    
     //variable estatica para definir el tamaño del aray
-    private static int TAMANYO=10;
+    private  int TAMANYO = 10;
     // Guardo el array con el que voy a trabajar
     private int[] miArray = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
+    
     Scanner sc = new Scanner(System.in);
 
 
-    private  int i,menorArray, mayorArray;
+    private  int i,menorArray, mayorArray, longit;
     
 
     public void crearArray() {
+        int num; 
 
+        System.out.println("Introduce el tamaño del Array:");
 
+            longit = sc.nextInt(); 
 
+            TAMANYO = longit;
 
+        System.out.println("Introduce los numeros positivos del array");
+
+        for(i = 0; i < TAMANYO; i ++){
+
+            System.out.println( (i + 1) + " : ");
+
+            num = sc.nextInt();
+
+            miArray[i] = num;
+            System.out.println(".................");
+
+        }
     }
 
+    
     public void rotarArray() {
 
         int miarrayActual = miArray[miArray.length - 1];
