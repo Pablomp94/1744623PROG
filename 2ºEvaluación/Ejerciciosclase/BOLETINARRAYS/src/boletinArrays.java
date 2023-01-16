@@ -15,19 +15,21 @@ public class boletinArrays {
     private  int i,menorArray, mayorArray;
     
 
-    
+    public void crearArray() {
+
+
+
+
+    }
+
     public void rotarArray() {
 
-        System.out.println("Introduce el numero a desplazar el Array");
+        int miarrayActual = miArray[miArray.length - 1];
 
-        int numero;
-
-        numero = sc.nextInt();
-
-        for (i=miArray.length-numero; i>0; i--) {                         
-            miArray[i] = miArray[i+numero];                
-        }
-                
+        for(i = (miArray.length - 1); i > 0; i --){
+            miArray[i] = miArray[i - 1];
+        }    
+        miArray[0] =  miarrayActual;
     }
 
     

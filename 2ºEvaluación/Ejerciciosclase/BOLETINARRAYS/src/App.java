@@ -11,6 +11,17 @@ public class App {
             System.out.println("******************************");
             System.out.println("*     METODOS DE ARRAYS      *");
             System.out.println("******************************");
+
+            //Introducir el Array con valores que el cliente escoja//
+            
+            
+
+
+
+
+
+
+
             System.out.println("ESCRIBE TU OPCIÓN:"); 
             System.out.println("1: Desplazar el ARRAY");
             System.out.println("2: Obtener el mayor valor del ARRAY");
