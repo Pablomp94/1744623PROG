@@ -16,14 +16,18 @@ public class boletinArrays {
     
 
     
-    public int[] rotarArray(int numeros[]) {
-        
-        int numeroActual = numeros[numeros.length-1];
-        for (i=numeros.length-1; i>0; i--) {                         
-            numeros[i] = numeros[i-1];                
+    public void rotarArray() {
+
+        System.out.println("Introduce el numero a desplazar el Array");
+
+        int numero;
+
+        numero = sc.nextInt();
+
+        for (i=miArray.length-numero; i>0; i--) {                         
+            miArray[i] = miArray[i+numero];                
         }
-        numeros[0] = numeroActual;
-        return numeros;        
+                
     }
 
     
@@ -85,5 +89,16 @@ public class boletinArrays {
 
         miArray[pos] = num;
 
+        System.out.println(" ");
     }
+
+    public void mostrarArray(){
+        
+        System.out.println("...............................");
+        System.out.println("Array actual:");
+        System.out.println(Arrays.toString(miArray));
+        System.out.println("...............................");
+    }
+
+
 }

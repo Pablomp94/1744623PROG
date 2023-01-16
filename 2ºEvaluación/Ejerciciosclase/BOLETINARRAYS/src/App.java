@@ -24,7 +24,7 @@ public class App {
                 case 1:
                 System.out.println("has elegido 1");
                 System.out.println(" ");
-                //Metodo rotar//
+                miBoletin.rotarArray();
                 System.out.println("_________________________");
                 break;
                 case 2:
@@ -40,6 +40,10 @@ public class App {
                 System.out.println("_________________________");
                 break;
                 case 4:
+                System.out.println("has elegido 4");
+                System.out.println(" ");
+                miBoletin.modificarArray();
+                System.out.println("_________________________");
 
                 break;
                 case 5:
@@ -49,7 +53,10 @@ public class App {
                 System.out.println("_________________________");
                 break;
                 case 6:
-
+                System.out.println("Has elegido 6");
+                System.out.println(" ");
+                miBoletin.mostrarArray();
+                System.out.println("_________________________");
                 break;
                 default:
                 break;
