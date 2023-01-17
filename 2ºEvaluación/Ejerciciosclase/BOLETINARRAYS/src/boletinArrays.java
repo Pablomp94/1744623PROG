@@ -16,7 +16,7 @@ public class boletinArrays {
     private  int i,menorArray, mayorArray, longit;
     
 
-    public void crearArray() {
+    /*public void crearArray() {
         int num; 
 
         System.out.println("Introduce el tamaño del Array:");
@@ -37,7 +37,7 @@ public class boletinArrays {
             System.out.println(".................");
 
         }
-    }
+    }*/
 
     
     public void rotarArray() {

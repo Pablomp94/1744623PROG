@@ -4,8 +4,21 @@ import java.util.*;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        boletinArrays miBoletin = new boletinArrays();
-        Scanner sc = new Scanner (System.in);
+        int[] miBoletin = new int[boletinArrays.TAMANYO];
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Introduce " + boletinArrays.TAMANYO + " numeros");
+        for(int i=0; i < boletinArrays.TAMANYO; i++){
+
+            miBoletin[i] = sc.nextInt();
+
+        }
+
+        boletinArrays.miBoletin = new boletinArrays.(miArray);
+
+
+
+
         int opcion=-1;
         do {
             System.out.println("******************************");
