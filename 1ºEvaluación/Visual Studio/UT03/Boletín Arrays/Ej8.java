@@ -8,13 +8,17 @@ public class Ej8 {
         
         Scanner sc = new Scanner(System.in);
 
-        int n, cont;
+        int n, cont, num;
+
+        cont = 0;
 
         int[] array = new int[1000];
 
         for(int i = 0; i < array.length; i++){
 
-            array[i] = Math.random() * 1000; 
+            num = (int) (Math.random()*100);
+
+            array[i] =  num;
         }
 
         System.out.println("Introduce un valor del 0 al 99");
@@ -28,6 +32,8 @@ public class Ej8 {
             }
 
         }
+
+        //System.out.println(Arrays.toString(array));
         
         if(cont > 0){
             System.out.println("El valor " + n + " se repite " + cont + " veces.");
