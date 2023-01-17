@@ -5,9 +5,10 @@ import java.util.*;
 public class boletinArrays {
     
     //variable estatica para definir el tamaño del aray
-    private  int TAMANYO = 10;
+    public static  int TAMANYO = 10;
+    public static boletinArrays.miArray miBoletin;
     // Guardo el array con el que voy a trabajar
-    private int[] miArray = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    public int[] miArray = new int[] {};
 
     
     Scanner sc = new Scanner(System.in);
@@ -118,6 +119,9 @@ public class boletinArrays {
         System.out.println("Array actual:");
         System.out.println(Arrays.toString(miArray));
         System.out.println("...............................");
+    }
+
+    public class miArray {
     }
 
 
