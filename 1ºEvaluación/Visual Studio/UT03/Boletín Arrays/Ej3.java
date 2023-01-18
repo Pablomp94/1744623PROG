@@ -1,7 +1,7 @@
 //Pablo Morales Puertas NRE:1744623//
 //Crear array de 50 digitos aleatoios double de 0.0 a 1.0, introducir numero R y decir cuantos numeros son mayores e iguales//
 
-import java.util.Scanner;
+import java.util.*;
 
 public class Ej3 {
     
@@ -33,11 +33,11 @@ public class Ej3 {
 
         System.out.println("Introduce un numero decimal del 0 al 1");
 
-        r = sc.nextDouble();
+        r = sc.nextDouble(); 
 
             //Mostrar numeros mayores o iguales al del array//
         
-        int x = 0;
+        int x;
 
         for(x=0; x<50; x++){
 
@@ -52,8 +52,8 @@ public class Ej3 {
             }
         }
 
-            System.out.println("En el array aleatorio tiene " + contadormayor + " numeros superiores al valor introducido");
-            System.out.println("El valor introducido coincide con un numero del array  " + contadorigual + " vez/veces");
+        System.out.println("En el array aleatorio tiene " + contadormayor + " numeros superiores al valor introducido");
+        System.out.println("El valor introducido coincide con un numero del array  " + contadorigual + " vez/veces");
         
     }
 }
