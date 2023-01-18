@@ -21,15 +21,15 @@ public class App {
             opcion = sc.nextInt();
 
             if (opcion == 1) {
-                System.out.println("El mayor es " + miESTADISTICA.mayor());
+                miESTADISTICA.mayor();
             }
 
             if (opcion == 2) {
-                System.out.println("El menor es " + miESTADISTICA.menor());
+                miESTADISTICA.menor();
             }
 
             if (opcion == 3) {
-                System.out.println("La media es " + miESTADISTICA.media());
+                miESTADISTICA.media();
             }
 
         } while (opcion != 4);

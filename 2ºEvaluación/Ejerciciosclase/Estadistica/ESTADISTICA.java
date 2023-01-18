@@ -16,7 +16,7 @@ public class ESTADISTICA {
 
     }
 
-    public int mayor() {
+    public void mayor() {
         
         for(Integer numero: listaNumeros){
 
@@ -24,10 +24,10 @@ public class ESTADISTICA {
                 numeromayor = numero; 
             }
         }
-        return numeromayor;
+        System.out.println("El numero mayor es: " + numeromayor);
     }
 
-    public int menor() {
+    public void menor() {
 
         numeromenor = 999999999;
         
@@ -37,10 +37,10 @@ public class ESTADISTICA {
                 numeromenor = numero;
             }        
         } 
-        return numeromenor;
+        System.out.println("El numero menor es: " + numeromenor);    
     }
 
-    public double media() {
+    public void media() {
 
         i = 0;
         
@@ -51,7 +51,35 @@ public class ESTADISTICA {
         
         media = i / listaNumeros.size();
         
-        return media;
+        System.out.println("La media de los numeros es: " + media);
     }
+
+
+    public void contarPares() {
+
+        int contpar;
+        contpar = 0;
+
+        for(Integer numero : listaNumeros){
+
+            if(numero % 2 == 0){
+                contpar ++;
+            }
+        }
+        System.out.println("Tiene un total de : " + contpar + " numeros pares");
+    }
+
+    public void contarPrimos() {
+
+        int contpar = 0;
+
+        for(Integer numero : listaNumeros){
+
+            
+
+
+        }
+    }
+
 
 }
