@@ -2,19 +2,23 @@
 
 import java.util.*;
 
+
+
 public class App {
     public static void main(String[] args) throws Exception {
-        int[] miBoletin = new int[boletinArrays.TAMANYO];
+        int [] arrayEjercicio = new int[boletinArrays.TAMANYO];
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Introduce " + boletinArrays.TAMANYO + " numeros");
         for(int i=0; i < boletinArrays.TAMANYO; i++){
 
-            miBoletin[i] = sc.nextInt();
+            int num = sc.nextInt();
+
+            arrayEjercicio[i] = num;
 
         }
 
-        boletinArrays.miBoletin = new boletinArrays.(miArray);
+        int[] miBoletin = new int[boletinArrays.TAMANYO];
 
 
 
@@ -25,9 +29,7 @@ public class App {
             System.out.println("*     METODOS DE ARRAYS      *");
             System.out.println("******************************");
 
-            //Introducir el Array con valores que el cliente escoja//
             
-            //miBoletin.crearArray();
 
             //Programa//
 
