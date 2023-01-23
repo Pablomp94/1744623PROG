@@ -1,0 +1,27 @@
+#-ACTORES-#
+create table Actores(
+	Código_Actores Int not null unique, 
+    Nombre Varchar(45) not null,
+    Fech Int not null,
+    Nacionalidad Varchar(45) not null,
+    Primary key (Código_Actores));
+#--------------------------------------------------------------
+#-PERSONAJES-#
+create table Personajes(
+	Código_Personajes Int not null unique,
+    Nombre Varchar(45) not null, 
+    Raza Varchar(45) not null,
+    Grado Varchar(45) not null, 
+	CodigoActor INT NOT NULL UNIQUE,
+    CodigoSuperior Int not null, 
+	
+	FOREIGN KEY CodigoActor (CodigoActor) REFERENCES Actores (Código_Actores)
+    );
+#--------------------------------------------------------------
+#-PLANETAS-#
+create table Planetas(
+    Código_Planetas int not null unique,
+    Galaxia Varchar(45) not null unique, 
+    Nombre varchar(45) not null unique
+	);    
+    
