@@ -70,3 +70,21 @@ create table Visitas(
     Visita varchar(45) not null unique);
     
    # Foreign key Visita (visita) references personajes (Código_Personajes), Naves (Código_Naves), Naves (Código_Naves), Orden (Orden));#
+   
+#--------------------------------------------------------------------
+#-RAZAS-#
+create table Humanos(
+	Código_Humanos int unique,
+    Ciudad varchar(45),
+    Fecha_Nac int,
+    Primary key (Código_Humanos),
+    Codigopersonaje int unique,
+    Foreign key Codigopersonaje (personaje) references  personajes (Código_Personajes));
+    
+create table Klingon(
+	Código_Klingon int unique,
+    Planeta varchar(45),
+    Ult_Combate varchar(45),
+    Primary key (Código_Klingon),
+    Codigopersonaje int unique,
+    Foreign key Codigopersonaje (personaje) references personajes (Código_Personajes));
