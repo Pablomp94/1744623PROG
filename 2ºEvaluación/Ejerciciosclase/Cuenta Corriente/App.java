@@ -39,6 +39,8 @@ public class App {
             }
 
         } while (opcion != 5);
-
+                
+        System.out.println("Has salido");
+            
     }
 }
