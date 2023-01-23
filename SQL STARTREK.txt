@@ -39,3 +39,34 @@ create table Capitulos(
     Primary key (Temporada, Orden),
     
     Foreign key Codigopersonaje (Codigopersonaje) references Personajes (Código_Personajes));
+    
+#------------------------------------------------------------------
+#-Peliculas-#
+create table Peliculas(
+	Código_Peliculas int not null unique,
+    Título varchar(45) not null unique,
+    Director varchar(45) not null, 
+    Año int not null, 
+    Codigopersonaje int not null unique,
+    
+    Primary key (Código_Peliculas),
+    
+    Foreign key Codigopersonaje (Codigopersonaje) references Personajes (Código_Personajes));
+    
+#-------------------------------------------------------------------
+#-Naves-#
+create table Naves(
+	Código_Naves int not null unique,
+    Num_Tripulantes int,
+    Nombre varchar(45) not null unique,
+    
+    primary key (Código_Naves));
+
+#--------------------------------------------------------------------
+
+#-Visitas-#
+create table Visitas(
+	Problema varchar(45) not null,
+    Visita varchar(45) not null unique);
+    
+   # Foreign key Visita (visita) references personajes (Código_Personajes), Naves (Código_Naves), Naves (Código_Naves), Orden (Orden));#
