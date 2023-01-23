@@ -78,13 +78,31 @@ create table Humanos(
     Ciudad varchar(45),
     Fecha_Nac int,
     Primary key (Código_Humanos),
-    Codigopersonaje int unique,
-    Foreign key Codigopersonaje (personaje) references  personajes (Código_Personajes));
+    personaje int unique,
+    Foreign key Codigopersonaje1 (personaje) references  personajes (Código_Personajes));
     
 create table Klingon(
 	Código_Klingon int unique,
     Planeta varchar(45),
     Ult_Combate varchar(45),
     Primary key (Código_Klingon),
-    Codigopersonaje int unique,
-    Foreign key Codigopersonaje (personaje) references personajes (Código_Personajes));
+	personaje int unique,
+    Foreign key Codigopersonaje2 (personaje) references personajes (Código_Personajes));
+    
+create table Vulcanianos(
+	Código_Vulcaniano int unique,
+    Mentor varchar(45),
+    Fecha_Grado int,
+    primary key (Código_Vulcaniano),
+    personaje int unique,
+    Foreign key Codigopersonaje3 (personaje) references personajes (Código_Personajes));
+    
+#-------------------------------------------------------------------------------------------------    
+#-Lanzaderas-#
+create table Lanzaderas(
+	Cod_Num int unique not null,
+    Cod_Nave int unique not null,
+    Personas varchar(45) not null, 
+    lanzadera int unique,
+    primary key (Cod_Num, Cod_Nave),
+    foreign key Lanzaderas (lanzadera) references Naves (Código_Naves));
