@@ -14,6 +14,8 @@ create table Personajes(
     Grado Varchar(45) not null, 
 	CodigoActor INT NOT NULL UNIQUE,
     CodigoSuperior Int not null, 
+    
+    Primary key (Código_Personajes),
 	
 	FOREIGN KEY CodigoActor (CodigoActor) REFERENCES Actores (Código_Actores)
     );
@@ -22,6 +24,18 @@ create table Personajes(
 create table Planetas(
     Código_Planetas int not null unique,
     Galaxia Varchar(45) not null unique, 
-    Nombre varchar(45) not null unique
+    Nombre varchar(45) not null unique,
+    Primary key (Código_Planetas)
 	);    
+ #--------------------------------------------------------------   
+#-Capitulos-#
+create table Capitulos(
+	Temporada Int not null,
+    Orden Int not null,
+    Titulo Varchar(45) not null unique,
+    Fecha Int not null,
+    Codigopersonaje int not null unique,
     
+    Primary key (Temporada, Orden),
+    
+    Foreign key Codigopersonaje (Codigopersonaje) references Personajes (Código_Personajes));
