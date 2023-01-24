@@ -71,12 +71,22 @@ public class ESTADISTICA {
 
     public void contarPrimos() {
 
-        int contpar = 0;
-
-        for(Integer numero : listaNumeros){
-
+        for(int numero : listaNumeros){
             
+            int contpri = 0;
+            
+            for(int pri = 1; pri <= numero; pri++){
 
+                if(numero % pri == 0){
+                    contpri ++;
+                }
+            }
+
+            if(contpri == 2 ){
+                System.out.println(numero + " es primo.");
+            }else{
+                System.out.println(numero + " no es primo.");
+            }
 
         }
     }

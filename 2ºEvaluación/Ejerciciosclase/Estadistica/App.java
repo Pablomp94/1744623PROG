@@ -15,7 +15,8 @@ public class App {
             System.out.println("1.Saber el mayor");
             System.out.println("2.Saber el menor");
             System.out.println("3.Saber la media");
-            System.out.println("4.Salir");
+            System.out.println("4.Saber los numeros primos");
+            System.out.println("5.Salir");
             System.out.println("****************");
 
             opcion = sc.nextInt();
@@ -32,7 +33,10 @@ public class App {
                 miESTADISTICA.media();
             }
 
-        } while (opcion != 4);
+            if(opcion == 4){
+                miESTADISTICA.contarPrimos();
+            }
+        } while (opcion != 5);
 
         System.out.println("__________________");
         System.out.println("   HASTA PRONTO   ");
