@@ -15,7 +15,7 @@ public void getSaldo2(int saldo2){
 
 int total = saldo1 + saldo2;
 
-public void gastarsaldo(){
+public  void gastarsaldo(){
     
     System.out.println(" ");
     System.out.println("Introduce el numero de tajetas que tienes:");

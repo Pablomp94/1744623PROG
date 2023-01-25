@@ -9,6 +9,7 @@ public class App {
         
         Tarjetas tarjetaUno = new Tarjetas();
         Tarjetas tarjetaDos = new Tarjetas();
+        Tarjetas tarjeta = new Tarjetas();
 
 
         System.out.println("Introduce el saldo de la primera tarjeta en numeros enteros positivos");
@@ -36,6 +37,11 @@ public class App {
         System.out.println("3.Salir.");
 
         opcion = sc.nextInt();
+
+        if(opcion == 1){
+            tarjeta.gastarsaldo();
+        }
+
 
     }while(opcion != 3);
 
