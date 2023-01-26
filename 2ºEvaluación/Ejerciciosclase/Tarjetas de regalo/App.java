@@ -5,7 +5,7 @@ public class App {
 
         Scanner sc =  new Scanner(System.in);
 
-        int cantidad, saldo, opcion;
+        int opcion, saldo1, saldo2;
         
         Tarjetas tarjetas = new Tarjetas();
         Tarjetas tarjetaUno = new Tarjetas();
@@ -15,17 +15,17 @@ public class App {
 
         System.out.println("Introduce el saldo de la primera tarjeta en numeros enteros positivos");
 
-        cantidad = sc.nextInt();
+        saldo1 = sc.nextInt();
 
-        tarjetaUno.getSaldo1(cantidad);
+        tarjetaUno.getSaldo1(saldo1);
     
         System.out.println("-------------------------------------------------------------------------");
 
         System.out.println("Introduce el saldo de la segunda tarjeta en numeros enteros positivos");
     
-        cantidad = sc.nextInt();
+        saldo2 = sc.nextInt();
             
-        tarjetaDos.getSaldo2(cantidad);
+        tarjetaDos.getSaldo2(saldo2);
 
         System.out.println(" ");
         System.out.println(" ");

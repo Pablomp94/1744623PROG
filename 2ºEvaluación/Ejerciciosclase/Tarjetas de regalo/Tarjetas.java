@@ -6,14 +6,13 @@ public class Tarjetas {
 
     int saldo1, saldo2, total, gastar, opc;
 
-    public void getSaldo1(int cantidad) {
-        saldo1 = 0;
-        saldo1 = saldo1 + cantidad;
+    public void getSaldo1(int saldo1) {
+
     }
 
-    public void getSaldo2(int cantidad) {
-        saldo2 = 0;
-        saldo2 = saldo2 + cantidad;
+    public void getSaldo2(int saldo2) {
+
+
     }
 
     public void gastarsaldo() {
@@ -75,16 +74,7 @@ public class Tarjetas {
 
         }
 
-        /*
-         * public void combinarTarjeta(){
-         * 
-         * total = saldo1 + saldo2;
-         * 
-         * System.out.println("Se han combinado las 2 tarjetas en una nueva de " + total
-         * + " $");
-         * 
-         * }
-         */
+        
     }
 
 }
