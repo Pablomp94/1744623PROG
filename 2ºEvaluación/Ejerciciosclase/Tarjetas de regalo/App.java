@@ -30,8 +30,10 @@ public class App {
         System.out.println(" ");
         System.out.println(" ");
     do{
+        System.out.println("------------------------------------------");
+        System.out.println("|||||||||||||||||||||||||||||||||||||||");
         System.out.println("Acciones a realizar con las tarjetas:");
-        System.out.println(" ");
+        System.out.println("|||||||||||||||||||||||||||||||||||||||");
         System.out.println("0.Información de las tarjetas.");
         System.out.println("1.Gastar saldo tarjetas.");
         System.out.println("2.Combinar tarjetas.");
