@@ -6,6 +6,8 @@ public class Ej_Metodos {
 
     public void capicua(int num) {
 
+
+
         
     }
 
