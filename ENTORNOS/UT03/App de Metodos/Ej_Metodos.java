@@ -2,13 +2,60 @@ import java.util.*;
 
 public class Ej_Metodos {
 
-    Scanner sc = new Scanner(System.in);
+  Scanner sc = new Scanner(System.in);
 
-    public void capicua(int num) {
+  //public void capicua(int num) {}
 
+  public void primo(int num) {
+    int contprim = 0;
 
-
-        
+    for (int i = 0; i <= num; i++) {
+      if ((num % i) == 0) {
+        contprim++;
+      }
     }
 
+    if (contprim == 2) {
+      System.out.println("El numero es primo");
+    } else {
+      System.out.println("El numero no es primo");
+    }
+  }
+
+  //public void sigprimo(int num){}
+
+  public void potencia() {
+    System.out.println("Introduce la base de la potencia:");
+
+    int base = sc.nextInt();
+    System.out.println(" ");
+    System.out.println("Introduce el exponente de la potencia:");
+
+    int exponente = sc.nextInt();
+    System.out.println(" ");
+
+    int resultado = 1;
+    for (int i = 0; i < exponente; i++) {
+      int potencia = base * resultado;
+      resultado = potencia;
+    }
+    System.out.println("La potencia es: " + resultado);
+  }
+
+  public void digitos() {
+
+    System.out.println("Introduce un numero para calcular sus digitos: ");
+
+    int num = sc.nextInt();
+    int contdig = 1;
+    
+    for(int div = 0 ; num < 1; num = div){
+
+        div = num / 10;
+        
+        contdig ++;
+        
+    }
+    System.out.println("El numero tiene " + contdig + " digitos");
+  }
 }
