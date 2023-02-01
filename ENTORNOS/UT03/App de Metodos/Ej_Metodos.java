@@ -4,12 +4,12 @@ public class Ej_Metodos {
 
   Scanner sc = new Scanner(System.in);
 
-  //public void capicua(int num) {}
+  public void capicua(int num) {}
 
   public void primo(int num) {
     int contprim = 0;
 
-    for (int i = 0; i <= num; i++) {
+    for (int i = 1; i <= num; i++) {
       if ((num % i) == 0) {
         contprim++;
       }
@@ -43,18 +43,16 @@ public class Ej_Metodos {
   }
 
   public void digitos() {
+    int contdig = 0;
 
     System.out.println("Introduce un numero para calcular sus digitos: ");
 
     int num = sc.nextInt();
-    int contdig = 1;
-    
-    for(int div = 0 ; num < 1; num = div){
 
-        div = num / 10;
-        
-        contdig ++;
-        
+    for (int div; num >= 1; num = div) {
+      div = num / 10;
+
+      contdig++;
     }
     System.out.println("El numero tiene " + contdig + " digitos");
   }

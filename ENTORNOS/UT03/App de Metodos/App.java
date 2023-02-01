@@ -9,11 +9,12 @@ public class App {
 
     System.out.println("Introduce un numero entero");
 
-    int num = sc.nextInt();
+    int num;
+    num = sc.nextInt();
 
     //Metodo.capicua(num);
 
-    //Metodo.primo(num);
+    Metodo.primo(num);
 
     //Metodo.potencia();
 
