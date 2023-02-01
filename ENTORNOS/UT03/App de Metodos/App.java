@@ -16,6 +16,8 @@ public class App {
 
     Metodo.primo(num);
 
+    Metodo.sigprimo(num);
+
     //Metodo.potencia();
 
     Metodo.digitos();

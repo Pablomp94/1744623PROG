@@ -27,13 +27,16 @@ public class Ej_Metodos {
 
     int contprim = 0;
 
-    for (int i = (num + 1); i < sigprimo; i++) {
+    int i; 
+
+    for(i = (num + 1); i < sigprimo; i++) {
       if ((num % i) == 0) {
         contprim++;
       }
     }
-
-    if (contprim == 2) {}
+    if (contprim == 2) {
+      System.out.println("El siguiente numero primo es: " + sigprimo);
+    }
   }
 
   public void potencia() {
