@@ -22,7 +22,19 @@ public class Ej_Metodos {
     }
   }
 
-  //public void sigprimo(int num){}
+  public void sigprimo(int num) {
+    int sigprimo = 0;
+
+    int contprim = 0;
+
+    for (int i = (num + 1); i < sigprimo; i++) {
+      if ((num % i) == 0) {
+        contprim++;
+      }
+    }
+
+    if (contprim == 2) {}
+  }
 
   public void potencia() {
     System.out.println("Introduce la base de la potencia:");
