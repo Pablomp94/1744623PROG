@@ -20,20 +20,26 @@ public class Ej_Metodos {
   }
 
   public Integer sigprimo(int num) {
-    int sigprimo = 0;
+    int sigprimo, i;
 
     int contprim = 0;
 
-    int i;
+    i = 1;
 
-    for (i = (num + 1); i < sigprimo; i++) {
-      if ((num % i) == 0) {
-        contprim++;
+    sigprimo = (num + 1);
+
+    do {
+      for (; i <= sigprimo; i++) {
+        if ((num % i) == 0) {
+          contprim++;
+        }
       }
-    }
-    if (contprim == 2) {
-      System.out.println("El siguiente numero primo es: " + sigprimo);
-    }
+      sigprimo = sigprimo + 1;
+      if (contprim == 2) {
+        System.out.println("El siguiente numero primo es: " + sigprimo);
+      }
+    } while (contprim != 2);
+
     return i;
   }
 
