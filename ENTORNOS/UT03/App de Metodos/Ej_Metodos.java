@@ -30,7 +30,7 @@ public class Ej_Metodos {
 
     do {
       for (; i <= sigprimo; i++) {
-        if ((num % i) == 0) {
+        if ((sigprimo % i) == 0) {
           contprim++;
         }
       }
