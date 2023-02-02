@@ -34,9 +34,13 @@ public class Ej_Metodos {
           contprim++;
         }
       }
-      sigprimo = sigprimo + 1;
+
       if (contprim == 2) {
         System.out.println("El siguiente numero primo es: " + sigprimo);
+      } else {
+        sigprimo = sigprimo + 1;
+        contprim = 0;
+        i = 1;
       }
     } while (contprim != 2);
 
