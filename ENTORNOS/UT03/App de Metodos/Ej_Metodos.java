@@ -74,11 +74,9 @@ public class Ej_Metodos {
 
     int longtd = numero.length();
 
-    for (int i = 0; i < longtd; i++) {
+    for (int i = 0; i <= longtd; i++) {
 
       char volteado = numero.charAt(longtd - i); 
-
-      volteado ++;
 
       System.out.println(volteado);
 
