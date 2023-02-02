@@ -38,7 +38,6 @@ public class Ej_Metodos {
   }
 
   public Integer potencia(int base, int exponente) {
-    
     int resultado = 1;
     for (int i = 0; i < exponente; i++) {
       int potencia = base * resultado;

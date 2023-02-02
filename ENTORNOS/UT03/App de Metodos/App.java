@@ -18,7 +18,7 @@ public class App {
 
     Metodo.sigprimo(num);
 
-      //Potencia//
+    //Potencia//
     System.out.println("Introduce la base de la potencia:");
 
     int base = sc.nextInt();
@@ -30,7 +30,7 @@ public class App {
 
     Metodo.potencia(base, exponente);
 
-        //Digitos//
+    //Digitos//
     System.out.println("Introduce un numero para calcular sus digitos: ");
 
     int numdig = sc.nextInt();
