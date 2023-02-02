@@ -38,5 +38,13 @@ public class App {
     int numdig = sc.nextInt();
 
     Metodo.digitos(numdig);
+
+    //Volteo//
+
+    System.out.println("Introduce un numero a realizar el volteo:");
+
+    int number = sc.nextInt();
+
+    Metodo.voltea(number);
   }
 }

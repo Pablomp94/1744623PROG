@@ -68,4 +68,23 @@ public class Ej_Metodos {
     System.out.println("El numero tiene " + contdig + " digitos");
     return contdig;
   }
+
+  public Integer voltea(int number) {
+    String numero = String.valueOf(number);
+
+    int longtd = numero.length();
+
+    for (int i = 0; i < longtd; i++) {
+
+      char volteado = numero.charAt(longtd - i); 
+
+      volteado ++;
+
+      System.out.println(volteado);
+
+    }
+    
+
+    return number;
+  }
 }
