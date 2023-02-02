@@ -18,8 +18,23 @@ public class App {
 
     Metodo.sigprimo(num);
 
-    //Metodo.potencia();
+      //Potencia//
+    System.out.println("Introduce la base de la potencia:");
 
-    Metodo.digitos();
+    int base = sc.nextInt();
+    System.out.println(" ");
+    System.out.println("Introduce el exponente de la potencia:");
+
+    int exponente = sc.nextInt();
+    System.out.println(" ");
+
+    Metodo.potencia(base, exponente);
+
+        //Digitos//
+    System.out.println("Introduce un numero para calcular sus digitos: ");
+
+    int numdig = sc.nextInt();
+
+    Metodo.digitos(numdig);
   }
 }
