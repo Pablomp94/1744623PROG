@@ -14,6 +14,8 @@ public class App {
 
     //Metodo.capicua(num);
 
+
+    //PRIMOS//
     Metodo.primo(num);
 
     Metodo.sigprimo(num);
