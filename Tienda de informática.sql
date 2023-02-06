@@ -75,6 +75,31 @@ select nombre ,  UPPER(LEFT(nombre, 2)) from fabricante;
 
 select nombre "nombre de producto" , round(precio, 1) "euros" from producto;
 
+/*10.Lista los nombres y los precios de todos los productos de la tabla producto, truncando el valor del precio para
+mostrarlo sin ninguna cifra decimal.*/
+
+select nombre "nombre de producto" , truncate(precio, 0) "euros" from producto;
+
+/*11.Lista el identificador de los fabricantes que tienen productos en la tabla producto*/
+
+select id_fabricante "id_fabricante" , nombre "nombre de producto" from producto;
+
+/*12. Lista el identificador de los fabricantes que tienen productos en la tabla producto, eliminando los identificadores
+que aparecen repetidos.*/
+
+select distinct id_fabricante "id_fabricante" from producto;
+
+/*13.. Lista los nombres de los fabricantes ordenados de forma ascendente.*/
+
+select nombre from fabricante order by nombre asc;
+
+/*14.Lista los nombres de los fabricantes ordenados de forma descendente*/
+
+select nombre from fabricante order by nombre desc;
+
+/*15. Lista los nombres de los productos ordenados en primer lugar por el nombre de forma ascendente y en segundo
+lugar por el precio de forma descendente.*/
+
 
 
 
