@@ -113,3 +113,14 @@ en la respuesta.*/
 
 select * from fabricante limit 3,2;
 
+/*18. Lista el nombre y el precio del producto más barato. */
+
+select nombre "nombre del producto" , precio "precio" from producto order by precio asc limit 1;
+
+/*19. Lista el nombre y el precio del producto más caro*/
+
+select nombre "nombre del producto" , precio "precio" from producto order by precio desc limit 1;
+
+/*20.. Lista el nombre de todos los productos del fabricante cuyo identificador de fabricante es igual a 2.*/
+
+select id_fabricante "id_fabricante" , nombre "nombre de producto" from producto where id_fabricante = 2;
