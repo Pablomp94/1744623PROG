@@ -104,4 +104,12 @@ select nombre "nombre del producto" , precio "precio" from producto order by nom
 
 select nombre "nombre del producto" , precio "precio" from producto order by precio desc;
 
+/*16.Devuelve una lista con las 5 primeras filas de la tabla fabricante.*/
+
+select * from fabricante limit 5;
+
+/*17.Devuelve una lista con 2 filas a partir de la cuarta fila de la tabla fabricante. La cuarta fila también se debe incluir
+en la respuesta.*/
+
+select * from fabricante limit 3,2;
 
