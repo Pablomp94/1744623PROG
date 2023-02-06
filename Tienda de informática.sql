@@ -100,7 +100,8 @@ select nombre from fabricante order by nombre desc;
 /*15. Lista los nombres de los productos ordenados en primer lugar por el nombre de forma ascendente y en segundo
 lugar por el precio de forma descendente.*/
 
+select nombre "nombre del producto" , precio "precio" from producto order by nombre asc;
 
-
+select nombre "nombre del producto" , precio "precio" from producto order by precio desc;
 
 
