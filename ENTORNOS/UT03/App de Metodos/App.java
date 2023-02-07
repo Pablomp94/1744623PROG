@@ -16,12 +16,14 @@ public class App {
     System.out.println("2.Primo");
     System.out.println("3.Siguiente Primo");
     System.out.println("4.Potencia");
-    System.out.println("5.Cuenta el número de dígitos de un número entero.");
+    System.out.println("5.Cuenta el numero de digitos de un numero entero.");
     System.out.println("6.Voltea");
-    System.out.println("7.Devuelve el dígito que está en la posición n de un número entero.");
-    System.out.println("8.Da la posición de la primera ocurrencia de un dígito dentro de un número entero.");
-    System.out.println("9.Le quita a un número n dígitos por detrás (por la derecha).");
-    System.out.println("10.Le quita a un número n dígitos por delante (por la izquierda).");
+    System.out.println("7.Devuelve el digito que esta en la posición n de un numero entero.");
+    System.out.println("8.Da la posición de la primera ocurrencia de un digito dentro de un numero entero.");
+    System.out.println("9.Le quita a un numero n digitos por detras (por la derecha).");
+    System.out.println("10.Le quita a un nuumero n digitos por delante (por la izquierda).");
+    System.out.println("11.Añade un digito a un numero al final.");
+    System.out.println("12.Añade un digito a un numero por delante.");
     System.out.println("0.SALIR");
     System.out.println("------------------");
     System.out.println("Elije una opción: ");
@@ -142,6 +144,34 @@ public class App {
     Metodo.quitaPorDelante(num, n);
   }
 
+  if(opcion == 11){
+
+    System.out.println("Introduce un numero");
+
+    num = sc.nextInt();
+
+    System.out.println("Introduce un digito a agregarle al final");
+
+    int añadido = sc.nextInt();
+
+    Metodo.añadirFinal(num, añadido);
+
+  }
+
+
+  if(opcion == 12){
+
+    System.out.println("Introduce un numero");
+
+    num = sc.nextInt();
+
+    System.out.println("Introduce un digito a agregarle al inicio");
+
+    int añadido = sc.nextInt();
+
+    Metodo.añadirInicio(num, añadido);
+
+  }
 
   }while(opcion!=0);
 }

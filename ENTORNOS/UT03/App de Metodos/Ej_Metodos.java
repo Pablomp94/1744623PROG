@@ -137,4 +137,36 @@ public class Ej_Metodos {
 
   }
 
+  public Integer añadirFinal(int num, int añadido){
+    
+    String numero = String.valueOf(num);
+
+    String añadido1 = String.valueOf(añadido);
+    
+    String numeroFinal = numero + añadido1;
+
+    Integer numeroFinalint = Integer.valueOf(numeroFinal);
+
+    System.out.println("El numero resultante es: " + numeroFinalint);
+    
+    return añadido;
+  }
+
+
+  public Integer añadirInicio(int num, int añadido){
+    
+    String numero = String.valueOf(num);
+
+    String añadido1 = String.valueOf(añadido);
+    
+    String numeroFinal = añadido1 + numero;
+
+    Integer numeroFinalint = Integer.valueOf(numeroFinal);
+
+    System.out.println("El numero resultante es: " + numeroFinalint);
+    
+    return añadido;
+  }
+
+
 }
