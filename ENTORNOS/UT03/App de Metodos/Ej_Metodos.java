@@ -1,6 +1,7 @@
 public class Ej_Metodos {
 
-  public void capicua(int num) {}
+  public void capicua(int num) {
+  }
 
   public Integer primo(int num) {
     int contprim = 0;
@@ -74,15 +75,51 @@ public class Ej_Metodos {
 
     int longtd = numero.length();
 
+    int volteado = 0;
+
     for (int i = 0; i <= longtd; i++) {
 
-      char volteado = numero.charAt(longtd - i); 
-
-      System.out.println(volteado);
+      volteado = numero.charAt(longtd - i);
 
     }
-    
+
+    System.out.println(volteado);
 
     return number;
+
   }
+
+  public Integer digitoN(int num, int pos) {
+
+    String numero = String.valueOf(num);
+
+    char c1 = numero.charAt((pos - 1));
+
+    System.out.println("El digito es:");
+
+    System.out.println(c1);
+
+    return num;
+
+  }
+
+  public Integer posicionDeDigito(int num) {
+    return num;
+  }
+
+  public Integer quitaPorDetras(int num, int n) {
+
+    String numero = String.valueOf(num);
+
+    int longt = numero.length();
+
+    String numero1 = numero.substring(0, (longt - n));
+
+    System.out.println("El numero restante es:");
+    System.out.println(numero1);
+
+    return num;
+
+  }
+
 }

@@ -124,3 +124,75 @@ select nombre "nombre del producto" , precio "precio" from producto order by pre
 /*20.. Lista el nombre de todos los productos del fabricante cuyo identificador de fabricante es igual a 2.*/
 
 select id_fabricante "id_fabricante" , nombre "nombre de producto" from producto where id_fabricante = 2;
+
+/*21.Lista el nombre de los productos que tienen un precio menor o igual a 120€.*/
+
+select nombre "nombre del producto" , precio "precio" from producto where precio >= 120;
+
+/*22.Lista el nombre de los productos que tienen un precio mayor o igual a 400€.*/
+
+select nombre "nombre del producto" , precio "precio" from producto where precio >= 400;
+
+/*23.  Lista el nombre de los productos que no tienen un precio mayor o igual a 400€.*/
+
+select nombre "nombre del producto" , precio "precio" from producto where precio < 400;
+
+/*24. Lista todos los productos que tengan un precio entre 80€ y 300€. Sin utilizar el operador BETWEEN.*/
+
+select nombre "nombre del producto" , precio "precio" from producto where precio >= 80 &&  precio <= 300;
+
+/*25.Lista todos los productos que tengan un precio entre 60€ y 200€. Utilizando el operador BETWEEN.*/
+
+select nombre "nombre del producto" , precio "precio" from producto where precio between 60 AND 200;
+
+/*26.Lista todos los productos que tengan un precio mayor que 200€ y que el identificador de fabricante sea igual a 6.*/
+
+select id_fabricante "id_fabricante" , nombre "nombre del producto" , precio "precio" from producto where precio > 200 && id_fabricante = 6;
+
+/*27.Lista todos los productos donde el identificador de fabricante sea 1, 3 o 5. Sin utilizar el operador IN.*/
+
+select nombre "nombre del producto" , id_fabricante "id_fabricante" from producto where id_fabricante = 1 or id_fabricante =  3 or id_fabricante = 5;
+
+/*28.Lista todos los productos donde el identificador de fabricante sea 1, 3 o 5. Utilizando el operador IN.*/
+
+select nombre "nombre del producto" , id_fabricante "id_fabricante" from producto where id_fabricante in (1,3,5);
+
+/*29.. Lista el nombre y el precio de los productos en céntimos (Habrá que multiplicar por 100 el valor del precio). Cree
+un alias para la columna que contiene el precio que se llame céntimos.*/
+
+select nombre "nombre del producto" , precio * 100  "céntimos" from producto;
+
+/*30.Lista los nombres de los fabricantes cuyo nombre empiece por la letra S.*/
+
+select nombre "nombre fabricantes" from fabricante where nombre like 'S%';
+
+/*31.Lista los nombres de los fabricantes cuyo nombre termine por la vocal e*/
+
+select nombre "nombre fabricantes" from fabricante where nombre like '%e';
+
+/*32. Lista los nombres de los fabricantes cuyo nombre contenga el carácter w*/
+
+select nombre "nombre fabricantes" from fabricante where nombre like '%w%';
+
+/*33.Lista los nombres de los fabricantes cuyo nombre sea de 4 caracteres*/
+
+select nombre "nombre fabricantes" from fabricante where nombre like '____';
+
+/*34. Devuelve una lista con el nombre de todos los productos que contienen la cadena Portátil en el nombre.*/
+
+select nombre "nombre producto" from producto where nombre like '%Portátil%';
+
+/*35.Devuelve una lista con el nombre de todos los productos que contienen la cadena Monitor en el nombre y tienen
+un precio inferior a 215 €*/
+
+select nombre "nombre producto" , precio "precio" from producto where nombre like '%Monitor%' && precio < 215;
+
+/*36. Lista el nombre y el precio de todos los productos que tengan un precio mayor o igual a 180€. Ordene el
+resultado en primer lugar por el precio (en orden descendente) y en segundo lugar por el nombre (en orden
+ascendente).*/
+
+/*Ordenado por precio*/
+select nombre "nombre producto" , precio "precio" from producto where precio >= 180 order by precio desc;
+
+/*Ordenado por el nombre*/
+select nombre "nombre producto" , precio "precio" from producto where precio >= 180 order by nombre asc;
