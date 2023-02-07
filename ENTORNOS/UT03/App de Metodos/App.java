@@ -21,6 +21,7 @@ public class App {
     System.out.println("7.Devuelve el dígito que está en la posición n de un número entero.");
     System.out.println("8.Da la posición de la primera ocurrencia de un dígito dentro de un número entero.");
     System.out.println("9.Le quita a un número n dígitos por detrás (por la derecha).");
+    System.out.println("10.Le quita a un número n dígitos por delante (por la izquierda).");
     System.out.println("0.SALIR");
     System.out.println("------------------");
     System.out.println("Elije una opción: ");
@@ -125,6 +126,22 @@ public class App {
 
     Metodo.quitaPorDetras(num, n); 
   }
+
+  if(opcion == 10){
+
+    //Le quita a un número n dígitos por delante (por la izquierda).//
+
+    System.out.println("Introduce el numero a trabajar");
+
+    num = sc.nextInt();
+
+    System.out.println("Introduce el numero de digitos a retirar por la izquierda");
+
+    int n = sc.nextInt();
+
+    Metodo.quitaPorDelante(num, n);
+  }
+
 
   }while(opcion!=0);
 }

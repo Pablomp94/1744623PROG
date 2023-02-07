@@ -122,4 +122,19 @@ public class Ej_Metodos {
 
   }
 
+  public Integer quitaPorDelante(int num, int n) {
+
+    String numero = String.valueOf(num);
+
+    int longt = numero.length();
+
+    String numero1 = numero.substring((longt - n) ,  longt);
+
+    System.out.println("El numero restante es:");
+    System.out.println(numero1);
+
+    return num;
+
+  }
+
 }
