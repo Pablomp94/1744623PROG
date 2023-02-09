@@ -27,4 +27,11 @@ public class Menu {
         int opcion = sc.nextInt();
         return opcion;
     }
+
+    public int idAlumno(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Introduce la id del alumno");
+        int idAlumno = sc.nextInt();
+        return idAlumno;
+    }
 }
