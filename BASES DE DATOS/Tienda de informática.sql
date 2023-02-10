@@ -35,6 +35,7 @@ INSERT INTO producto VALUES(11, 'Impresora HP Laserjet Pro M26nw', 180, 3);
 
 use tienda;
 
+/*1ºTRABAJO*/
 /*1.Lista el nombre de todos los productos que hay en la tabla producto.*/
 
 select nombre from producto;
@@ -196,3 +197,73 @@ select nombre "nombre producto" , precio "precio" from producto where precio >= 
 
 /*Ordenado por el nombre*/
 select nombre "nombre producto" , precio "precio" from producto where precio >= 180 order by nombre asc;
+
+
+
+/*2ºTRABAJO*/
+
+/*1. Devuelve una lista con el nombre del producto, precio y nombre de fabricante de todos los productos de la base
+de datos.*/
+
+Select p.nombre "nombre del producto" , p.precio "precio" , f.nombre "nombre fabricante"  from producto as p
+join fabricante as f on f.id = p.id_fabricante;
+
+/*2.Devuelve una lista con el nombre del producto, precio y nombre de fabricante de todos los productos de la base
+de datos. Ordene el resultado por el nombre del fabricante, por orden alfabético.*/
+
+Select p.nombre "nombre del producto" , p.precio "precio" , f.nombre "nombre fabricante"  
+from producto as p
+join fabricante as f on f.id = p.id_fabricante 
+order by f.nombre asc;
+
+/*3.Devuelve una lista con el identificador del producto, nombre del producto, identificador del fabricante y nombre
+del fabricante, de todos los productos de la base de datos.*/
+
+Select p.nombre "nombre del producto" , p.id "Id del producto" , f.nombre "nombre fabricante" , f.id "Id del fabricante"
+from producto as p
+join fabricante as f on f.id = p.id_fabricante;
+
+/*4.Devuelve el nombre del producto, su precio y el nombre de su fabricante, del producto más barato.*/
+
+Select p.nombre "nombre del producto" , min(p.precio) "precio" , f.nombre "nombre fabricante"  
+from producto as p
+join fabricante as f on f.id = p.id_fabricante;
+
+/*5.Devuelve el nombre del producto, su precio y el nombre de su fabricante, del producto más caro.*/
+
+Select p.nombre "nombre del producto" , max(p.precio) "precio" , f.nombre "nombre fabricante"  
+from producto as p
+join fabricante as f on f.id = p.id_fabricante;
+
+/*6.Devuelve una lista de todos los productos del fabricante Lenovo.*/
+
+Select p.nombre "nombre del producto" , p.precio "precio" , f.nombre "nombre fabricante"  
+from producto as p
+join fabricante as f on f.id = p.id_fabricante 
+where f.nombre like "Lenovo";
+
+/*7.Devuelve una lista de todos los productos del fabricante Crucial que tengan un precio mayor que 200€.*/
+
+Select p.nombre "nombre del producto" , p.precio "precio" , f.nombre "nombre fabricante"  
+from producto as p
+join fabricante as f on f.id = p.id_fabricante 
+where f.nombre like "Crucial" && p.precio > 200;
+
+/*8.Devuelve un listado con todos los productos de los fabricantes Asus, Hewlett-Packard y Seagate. Sin utilizar el
+operador IN*/
+
+Select p.nombre "nombre del producto" , p.precio "precio" , f.nombre "nombre fabricante"  
+from producto as p
+join fabricante as f on f.id = p.id_fabricante 
+where f.nombre = "Asus" or f.nombre = "Hewlett-Packard" or f.nombre = "Seagate";
+
+/*9.Devuelve un listado con todos los productos de los fabricantes Asus, Hewlett-Packard y Seagate. Utilizando el
+operador IN.*/
+
+Select p.nombre "nombre del producto" , p.precio "precio" , f.nombre "nombre fabricante"  
+from producto as p
+join fabricante as f on f.id = p.id_fabricante 
+f.nombre = "Asus" or f.nombre = "Hewlett-Packard" or f.nombre = "Seagate";
+
+
+
