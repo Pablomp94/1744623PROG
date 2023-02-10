@@ -105,7 +105,7 @@ public class App {
 
             for (Matriculas estaMatricula : listaMatriculas) {
                 int notas = estaMatricula.getNotaMateria();
-                if(notas >= 5){
+                if(notas < 5){
                     contsus ++;
                 }
             }
