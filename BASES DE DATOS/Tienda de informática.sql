@@ -260,10 +260,94 @@ where f.nombre = "Asus" or f.nombre = "Hewlett-Packard" or f.nombre = "Seagate";
 /*9.Devuelve un listado con todos los productos de los fabricantes Asus, Hewlett-Packard y Seagate. Utilizando el
 operador IN.*/
 
+Select p.nombre "nombre del producto" , p.precio "precio" , f.nombre "nombre fabricante" 
+from producto as p
+join fabricante as f on f.id = p.id_fabricante 
+where f.nombre in ("Asus", "Hewlett-Packard", "Seagate");
+
+/*10.Devuelve un listado con el nombre y el precio de todos los productos de los fabricantes cuyo nombre termine por
+la vocal e.*/
+
+Select nombre "nombre del producto" , precio "precio del producto" from producto
+where nombre like "%e";
+
+/*11.Devuelve un listado con el nombre y el precio de todos los productos cuyo nombre de fabricante contenga el
+carácter w en su nombre.*/
+
 Select p.nombre "nombre del producto" , p.precio "precio" , f.nombre "nombre fabricante"  
 from producto as p
 join fabricante as f on f.id = p.id_fabricante 
-f.nombre = "Asus" or f.nombre = "Hewlett-Packard" or f.nombre = "Seagate";
+where f.nombre like "%w%";
+
+/*12. Devuelve un listado con el nombre de producto, precio y nombre de fabricante, de todos los productos que
+tengan un precio mayor o igual a 180€. Ordene el resultado en primer lugar por el precio (en orden descendente)
+y en segundo lugar por el nombre (en orden ascendente)*/
+
+Select p.nombre "nombre del producto" , p.precio "precio" , f.nombre "nombre fabricante"  
+from producto as p
+join fabricante as f on f.id = p.id_fabricante 
+where p.precio >= 180
+order by p.precio desc;
+
+Select p.nombre "nombre del producto" , p.precio "precio" , f.nombre "nombre fabricante"  
+from producto as p
+join fabricante as f on f.id = p.id_fabricante 
+where p.precio >= 180
+order by p.nombre asc;
+
+/*13. Devuelve un listado con el identificador y el nombre de fabricante, solamente de aquellos fabricantes que tienen
+productos asociados en la base de datos.*/
+
+Select id "id del fabricante" , nombre "nombre del fabricante" from fabricante;
 
 
+/*14. Lista los nombres, apellidos y nif de los empleados que trabajan en los departamentos 2, 4 o 5*/
 
+CREATE TABLE departamentos (
+id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+nombre VARCHAR(100) NOT NULL
+);
+
+create table nombres (
+nif INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+nombre VARCHAR(100) NOT NULL,
+apellidos VARCHAR(100) NOT NULL,
+FOREIGN KEY (id_departamentos) REFERENCES departamentos(id)
+
+);
+
+INSERT INTO departamentos VALUES(1, 'dep1');
+INSERT INTO departamentos VALUES(2, 'dep2');
+INSERT INTO departamentos VALUES(3, 'dep3');
+INSERT INTO departamentos VALUES(4, 'dep4');
+INSERT INTO deparmatentos VALUES(5, 'dep5');
+
+INSERT INTO nombres VALUES(1, 'Pepe');
+INSERT INTO nombres VALUES(2, 'María');
+INSERT INTO nombres VALUES(3, 'Mario');
+INSERT INTO nombres VALUES(4, 'David');
+INSERT INTO nombres VALUES(5, 'Jose');
+
+Select n.nombre "nombre del trabajador" , n.apellidos "apellidos" , n.nif "nif" , d.id "id departamento"  
+from nombres as n
+join departamentos as d on d.id = n.id_departamentos 
+where d.id like ("2" , "4" , "5");
+
+
+/*15.Devuelve un listado de todos los fabricantes que existen en la base de datos, junto con los productos que tiene
+cada uno de ellos. El listado deberá mostrar también aquellos fabricantes que no tienen productos asociados.*/
+
+Select p.nombre "nombre del producto"  , f.nombre "nombre fabricante"  
+from producto as p
+join fabricante as f on f.id = p.id_fabricante;
+
+/*16. Devuelve un listado donde sólo aparezcan aquellos fabricantes que no tienen ningún producto asociado.*/
+
+Select p.nombre "nombre del producto"  , f.nombre "nombre fabricante"  
+from producto as p
+left join fabricante as f on f.id = p.id_fabricante
+where p.nombre is null;
+
+/*17.¿Pueden existir productos que no estén relacionados con un fabricante?*/
+
+/*No ya que cada producto está relacionado con un fabricante, por lo que todo producto debe de estar relacionado ya de por si con un fabricante, y por que usa como clave foránea la id del fabricante por lo que es necesario*/ 
