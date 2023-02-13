@@ -16,7 +16,7 @@ public class ESTADISTICA {
 
     }
 
-    public void mayor() {
+    public Integer mayor() {
         
         for(Integer numero: listaNumeros){
 
@@ -24,7 +24,8 @@ public class ESTADISTICA {
                 numeromayor = numero; 
             }
         }
-        System.out.println("El numero mayor es: " + numeromayor);
+        return numeromayor;
+     //   System.out.println("El numero mayor es: " + numeromayor);
     }
 
     public void menor() {
