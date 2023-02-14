@@ -39,7 +39,7 @@ public class Ej6 {
         System.out.println("-------------------------------------------------");
         
 
-        if(finalfrase == reversofinal){
+        if(finalfrase.equalsIgnoreCase(reversofinal)){
             System.out.println("La frase es palindroma");
         }else{
             System.out.println("La frase no es palindroma");
