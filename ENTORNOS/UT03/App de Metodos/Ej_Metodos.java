@@ -1,6 +1,26 @@
 public class Ej_Metodos {
 
   public void capicua(int num) {
+
+    int number = num;
+
+    String numero = String.valueOf(number);
+
+    StringBuilder reverso = new StringBuilder();
+
+        for (int i = (numero.length() - 1); i >= 0; i--){
+			reverso.append(numero.charAt(i));
+
+		}
+    String numerofinal = reverso.toString();
+    
+
+    if(numerofinal.equals(numero)){
+      System.out.println("El numero es capicua");
+    }else{
+      System.out.println("No es capicua");
+    }
+
   }
 
   public Integer primo(int num) {
@@ -70,22 +90,18 @@ public class Ej_Metodos {
     return contdig;
   }
 
-  public Integer voltea(int number) {
+  public String voltea(int number) {
     String numero = String.valueOf(number);
 
-    int longtd = numero.length();
+    StringBuilder reverso = new StringBuilder();
 
-    int volteado = 0;
+        for (int i = (numero.length() - 1); i >= 0; i--){
+			reverso.append(numero.charAt(i));
 
-    for (int i = 0; i <= longtd; i++) {
+		}
+    String numerofinal = reverso.toString();
 
-      volteado = numero.charAt(longtd - i);
-
-    }
-
-    System.out.println(volteado);
-
-    return number;
+    return numerofinal;
 
   }
 

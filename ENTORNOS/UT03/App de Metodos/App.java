@@ -40,6 +40,17 @@ public class App {
 
     
     //Metodo.capicua(num);//
+  
+  if(opcion == 1){
+
+    System.out.println("Introduce un número");
+
+    num = sc.nextInt();
+
+    Metodo.capicua(num);
+
+  }
+
 
 
   if(opcion == 2){
@@ -93,7 +104,10 @@ public class App {
 
     int number = sc.nextInt();
 
+    System.out.println("Numero volteado");
+    
     Metodo.voltea(number);
+    System.out.println(Metodo.voltea(number));
   }
 
 
