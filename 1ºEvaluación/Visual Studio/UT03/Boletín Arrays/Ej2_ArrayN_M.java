@@ -1,5 +1,5 @@
 //Pablo Morales Puertas NRE: 1744623//
-
+//Escribe un programa que pida dos número por teclado : N y M. A continuación el programa creará un array de tamaño N e irá pidiendo números por pantalla, pero solo guardará en el array aquellos que sean múltiplos de M. El resultado debe ser parecido al siguiente:  Al final debe mostrar todo el array:
 import java.util.Scanner;
 
 public class Ej2_ArrayN_M {
