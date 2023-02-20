@@ -13,6 +13,7 @@ public class Ej2_Palabraporlinea {
         String s4=s1.substring(7,12);
 
         System.out.println(s1);
+        System.out.println("............");
         System.out.println(s2);
         System.out.println(s3);
         System.out.println(s4);
