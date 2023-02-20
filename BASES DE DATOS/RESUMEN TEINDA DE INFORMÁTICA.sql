@@ -111,11 +111,61 @@ productos.*/
 
 Select id_fabricante "ID fabricante" , count(nombre) "Nombre del producto"  from producto
 
-order by count(nombre) desc;
+order by count(nombre) desc 
+group by id_fabricante;
 
 /*17.Muestra el precio máximo, precio mínimo y precio medio de los productos de cada uno de los fabricantes. El
 resultado mostrará el nombre del fabricante junto con los datos que se solicitan.*/
 
-Select id_fabricante "ID fabricante" , max(precio) "Precio Máximo" , min(precio) "Precio Mínimo" , avg(precio) "Precio Medio" from producto
-
+Select p.id_fabricante "ID fabricante" ,p.preciominimo "Precio minimo" , p.preciomaximo "Precio maximo" , p.preciomedio "Precio medio" , f.nombre from producto as p
+join fabricante as f on id_fabricante = p.id_fabricante
+where
+p.preciominimo = min(p.precio) && p.preciomaximo = max(p.precio) && p.preciomedio = avg(p.precio)
+group by id_fabricante
 ;
+
+/*18.Muestra el precio máximo, precio mínimo, precio medio y el número total de productos de los fabricantes que
+tienen un precio medio superior a 200€. No es necesario mostrar el nombre del fabricante, con el identificador
+del fabricante es suficiente.*/
+
+
+/*20.Calcula el número de productos que tienen un precio mayor o igual a 180€.*/
+
+Select count(precio) from producto 
+where precio >= 180
+group by id_fabricante;
+
+/*21.Calcula el número de productos que tiene cada fabricante con un precio mayor o igual a 180€.*/
+
+Select  id_fabricante , precio , count(nombre) from producto
+where precio >= 180
+group by id_fabricante;
+
+
+/*22.Calcula el número de productos que tiene cada fabricante con un precio mayor o igual a 180€.*/
+
+Select id_fabricante , count(nombre) , precio from producto
+where precio >= 180
+group by id_fabricante;
+
+/*23. Lista el precio medio de los productos de cada fabricante, mostrando solamente el nombre del fabricante.*/
+
+Select p.precio , f.nombre from producto as p 
+join fabricante as f on id_fabricante = f.id_fabricante
+where p.precio = avg(p.precio);
+
+/*24.Lista los nombres de los fabricantes cuyos productos tienen un precio medio mayor o igual a 150€.*/
+
+Select distinct f.nombre , p.precio from producto as p
+join fabricante as f 
+where p.precio >= 150;
+
+/*25. Devuelve un listado con los nombres de los fabricantes que tienen 2 o más productos.*/
+
+Select f.nombre , count(p.nombre) from producto as p
+join fabricante as f 
+where (count(p.nombre)) >= 2;
+
+
+/*26. 
+
