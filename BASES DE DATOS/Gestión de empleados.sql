@@ -121,3 +121,6 @@ order by apellido2 asc;
 
 Select nombre "Nombre empleado" , apellido1 "1ºApellido" , apellido2 "2ºApellido" from empleado
 order by nombre asc;
+
+
+/*16.Devuelve una lista con el nombre y el presupuesto, de los 3 departamentos que tienen mayor presupuesto.*/
