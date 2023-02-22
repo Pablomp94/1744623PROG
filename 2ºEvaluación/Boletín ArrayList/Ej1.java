@@ -10,7 +10,7 @@ public class Ej1 {
 
         ArrayList<String> list = new ArrayList<>();
 
-        int opcion = 1;
+        int opcion;
         String color;
         
         do{
@@ -24,11 +24,12 @@ public class Ej1 {
                 
                 System.out.println("Introduce el color que le quieras agregar al arraylist");
 
-                color = sc.nextLine();
+                color = sc.next();
                 
                 list.add(color);
+            
             }
-            else{
+            if(opcion == 2){
                 System.out.println(list);
             }
             
