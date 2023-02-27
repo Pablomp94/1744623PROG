@@ -4,20 +4,18 @@
 import java.util.*;
 
 public class Ej10 {
-    public static void main(String[] args) {
-     
-        ArrayList<String> list =  new ArrayList<> (List.of("Pepe", "Maria", "Juan", "Jose" , "Pedro"));
 
-        do{
-            System.out.println(list);
-            System.out.println("1.Elegir la palabra a cambiar");
-            System.out.println("2.Introducir la posicion a cambiarla");
-            
-            int opcion = sc.nextInt();
-            
-            if(opcion == 1){
-                System.out.println("");
-            }
-        }
-    }
+  public static void main(String[] args) {
+    ArrayList<String> list = new ArrayList<>(
+      List.of("Pepe", "Maria", "Juan", "Jose", "Pedro")
+    );
+
+    //Con el metodo collections.shuffle cambia aleatoriamente la posicion del arraylist//
+
+    System.out.println(list);
+
+    Collections.shuffle(list);
+
+    System.out.println(list);
+  }
 }
