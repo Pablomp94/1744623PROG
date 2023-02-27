@@ -7,26 +7,14 @@ public class Ficherospruebas {
 
     public static void main(String[] args) {
 
-       
         escribe();
-
-        
-        
     }
 
     public static void crea(){
-        
         try{
-            File archivo = new File("pruebasfichero.txt");
-
-            if(archivo.createNewFile()){
-                System.out.println("El archivo se creo correctamente");
-            }else{
-                System.out.println("El archivo no se a creado debido a que ya existe un fichero con ese mismo nombre");
-            }
-        }
-        catch(Exception e){
-            System.out.println("Ha ocurrido un error, por lo que el archivo no ha sido creado");
+        File archivo = new File("pruebasfichero.txt");
+        }catch(Exception e ){
+            System.out.println("No se creo el archivo debido a un error");
         }
     }
 
@@ -55,9 +43,10 @@ public class Ficherospruebas {
             String frase;
             
             do{
-            frase= sc.next();
-            escribir.write(frase + "/n");
-            }while(frase != "Fin");
+            frase = sc.next();
+            escribir.write(frase + "\n");
+            }while(!frase.equalsIgnoreCase("Fin"));
+            escribir.close();
 
             System.out.println(" ");
             System.out.println("Se escribio correctamente en el archivo");
