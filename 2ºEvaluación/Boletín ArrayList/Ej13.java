@@ -10,7 +10,17 @@ public class Ej13 {
 
         ArrayList<String> list2 =  new ArrayList<> (List.of("Pepe", "Maria", "Juan", "Jose" , "Pedro"));
         
-        Collection.compare(list1 , list2);
+        //Con este comando comparamos automaticamente los dos arraylists, devolviendo un buleano si estrue son iguales, false si no lo son//
         
+        boolean prueba = list1.equals(list2);
+
+        if(prueba == true){
+            System.out.println("Son iguales");
+        }else{
+            System.out.println("No son iguales");
+        }
+
+        
+
     }
 }
