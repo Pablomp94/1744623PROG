@@ -11,5 +11,6 @@ public class Ej13 {
         ArrayList<String> list2 =  new ArrayList<> (List.of("Pepe", "Maria", "Juan", "Jose" , "Pedro"));
         
         Collection.compare(list1 , list2);
+        
     }
 }
