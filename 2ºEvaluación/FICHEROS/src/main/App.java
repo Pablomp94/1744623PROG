@@ -1,60 +1,68 @@
 package main;
 
+import java.util.ArrayList;
 import java.util.Scanner;
-
-import java.util.*;
 
 import datos.Documentos;
 
+/**
+ * Clase principal que muestra los datos por pantalla
+ *
+ * @author Joaquin Rios
+ * @version 2023.02.28
+ */
 public class App {
     static Documentos miDocumento = new Documentos();
-
     static Menu miMenu;
+    /**
+     * Aplicacion principal
+     * @param args argumentos de la app
+     */
     public static void main(String[] args) {
-
-        int opcion = 99;
+        int opcion=99;
         crearMenu();
 
-        do{
+        do {
             miMenu.verMenu();
             opcion = miMenu.leerOpcion();
-            switch (opcion){
-                case 1 : 
-                    escribir(); 
+            switch (opcion) {
+                case 1: 
+                    escribir();
                 break;
-                case 2 :
+                case 2: 
                     miDocumento.guardar();
                 break;
-            }
-        }while(opcion != 0);
-        
-    }
 
-        public static void escribir(){
-        String linea = "*";
-        Scanner sc =  new Scanner(System.in);
+            }
+        } while (opcion!=0);
+        
+    }       
+    
+    /**
+     * Añade lineas al documento
+     */
+    public static void escribir() {
+        String linea = "";
+        Scanner sc = new Scanner(System.in);
 
         System.out.println("Escribe lineas (fin para terminar):");
         do {
             linea = sc.nextLine();
-
-            if(!linea.equalsIgnoreCase("Fin")){
-            miDocumento.nuevaLinea(linea);
+            if (!linea.equals("fin")) {
+                miDocumento.nuevaLinea(linea);
             }
-        } while (!linea.equalsIgnoreCase("fin"));
-        
-        //System.out.println(miDocumento.getMiArrayList().toString());
+        } while (!linea.equals("fin"));
+        miDocumento.guardar();
     }
 
-        public static void crearMenu(){
-            ArrayList<String> listaopciones = new ArrayList<>();
-            listaopciones.add("Escribir en el documento");
-            listaopciones.add("Guardar");
-            miMenu = new Menu(listaopciones, "Documentos");
-        }
+    /**
+     * crea el menu con mis opciones
+     */
+    public static  void crearMenu() {
+        ArrayList<String> listaOpciones = new ArrayList<>();
+        listaOpciones.add("Escribir en el documento");
+        listaOpciones.add("GUARDAR");
+        miMenu = new Menu(listaOpciones, "DOCUMENTOS");
 
-        public static void borrar(){
-            
-        }
-    }        
-
+    }
+}

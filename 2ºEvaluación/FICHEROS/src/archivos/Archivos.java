@@ -9,11 +9,23 @@ import java.util.Scanner;
 
 /**
  * Clase Archivos
- * Gestiona la gestion de ficheros en disco
- **/
+ * Implementa la gestion de ficheros en disco
+ * @author Joaquin Rios
+ * @version 2023.02.28
+ * 
+ */
 public class Archivos {
+    /**
+     * nombreFichero almacena el nombre del archivo a leer
+     * TODO: Hacer que el nombre del archivo se mande 
+     * en el cosntructor.
+     */
     private String nombreFichero= "archivo.txt";
 
+    /**
+     * <b>Este metodo crea un archivo nuevo</b>
+     * @see <a href="https://www.w3schools.com/files">W3SCHOOLS</a>
+     */
     public  Archivos() {
         try {
             File miFichero = new File(nombreFichero);
@@ -24,9 +36,9 @@ public class Archivos {
         }
     }
 
-    /*
-     * lee el archivo y lo 
-     * almacena en un arraylist
+    /**
+     * lee el archivo y lo almacena en un arraylist
+     * @return ArrayList con las lineas del archivo
      */
     public ArrayList<String> lee() { 
         File miFichero = new File(nombreFichero);       
@@ -34,6 +46,8 @@ public class Archivos {
         try {
             
             Scanner myReader = new Scanner(miFichero);
+            // Este bucle va leyendo el archivo
+            // linea por linea
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
                 documento.add(data);
@@ -46,23 +60,37 @@ public class Archivos {
         return documento;        
     }
 
+    /**
+     * lee del arraylist y lo almacena en el archivo
+     * 
+     * @param documento - ArrayList con las lineas del archivo
+     */
     public void escribe(ArrayList<String> documento) {
         try {
             FileWriter myWriter = new FileWriter(nombreFichero);
             for (String linea : documento) {
                 myWriter.write(linea);
             }            
-            myWriter.close();
-            //System.out.println("Successfully wrote to the file.");
+            myWriter.close();            
         } catch (IOException e) {
-            //System.out.println("An error occurred.");
             e.printStackTrace();
         }
 
     }
 
+    /**
+     * Metodo que borra el archivo del disco
+     * @return el resultado de la operación de borrado
+     * @since 2023.02.28
+     */
     public boolean borra() {
         File myObj = new File(nombreFichero);
         return myObj.delete();
+    }
+
+    public static void verDocumento(){
+        for(int i = 0; i < miDocumento.getArrayList.size(); i++){
+            System.out.println(i + 1 + " " + miDocumento.get(i));
+        }
     }
 }
