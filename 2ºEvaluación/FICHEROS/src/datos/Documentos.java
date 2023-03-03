@@ -52,5 +52,19 @@ public class Documentos {
     public ArrayList<String> getMiArrayList() {
         return miArrayList;
     }
+
+    public void vaciarDocumento(){
+        miArrayList.clear();
+
+    }
+
+    public int getNumeroLineas(){
+        return miArrayList.size();
+    }
+
+    public void borraLinea(int num_linea){
+        
+        miArrayList.remove(num_linea - 1);
+    }
     
 }

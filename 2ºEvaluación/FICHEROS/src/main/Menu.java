@@ -49,4 +49,6 @@ public class Menu {
         int opcion = sc.nextInt();
         return opcion;
     }
+
+    
 }

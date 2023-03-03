@@ -32,6 +32,12 @@ public class App {
                 case 2: 
                     miDocumento.guardar();
                 break;
+                case 3:
+                    vaciar();
+                break;
+                case 4:
+                    borraLinea();
+                break;
 
             }
         } while (opcion!=0);
@@ -62,7 +68,23 @@ public class App {
         ArrayList<String> listaOpciones = new ArrayList<>();
         listaOpciones.add("Escribir en el documento");
         listaOpciones.add("GUARDAR");
+        listaOpciones.add("Vaciar");
+        listaOpciones.add("Eliminar linea");
         miMenu = new Menu(listaOpciones, "DOCUMENTOS");
 
+    }
+
+    public static void vaciar(){
+        miDocumento.vaciarDocumento();
+        
+        miDocumento.guardar();
+    }
+
+    public static void borraLinea(){
+        System.out.println("Introduce numero de linea a borrar");
+        Scanner sc = new Scanner(System.in);
+        int num_linea = sc.nextInt();
+        miDocumento.borraLinea(num_linea);
+        miDocumento.guardar();
     }
 }
