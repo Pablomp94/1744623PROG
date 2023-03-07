@@ -38,6 +38,9 @@ public class App {
                 case 4:
                     borraLinea();
                 break;
+                case 5:
+                    modificarLinea();
+                break;
 
             }
         } while (opcion!=0);
@@ -70,6 +73,7 @@ public class App {
         listaOpciones.add("GUARDAR");
         listaOpciones.add("Vaciar");
         listaOpciones.add("Eliminar linea");
+        listaOpciones.add("Modificar linea");
         miMenu = new Menu(listaOpciones, "DOCUMENTOS");
 
     }
@@ -81,10 +85,22 @@ public class App {
     }
 
     public static void borraLinea(){
-        System.out.println("Introduce numero de linea a borrar");
+        System.out.println("Introduce numero de linea a borrar:");
         Scanner sc = new Scanner(System.in);
         int num_linea = sc.nextInt();
         miDocumento.borraLinea(num_linea);
+        miDocumento.guardar();
+    }
+
+    public static void modificarLinea(){
+        System.out.println("Introduce la linea a modificar:");
+        Scanner sc = new Scanner(System.in);
+        int num_linea = sc.nextInt();
+        
+        System.out.println("Introduce la frase a cambiar:");
+        String linea = sc.next();
+
+        miDocumento.modificarLinea(num_linea, linea);
         miDocumento.guardar();
     }
 }

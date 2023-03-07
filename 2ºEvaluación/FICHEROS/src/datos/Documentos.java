@@ -24,6 +24,7 @@ public class Documentos {
     public Documentos() {
         miArrayList = new ArrayList<>();
         miArchivo = new Archivos();
+        miArrayList = miArchivo.lee();
     }
 
 
@@ -33,7 +34,7 @@ public class Documentos {
      * @return el ArrayList con la linea añadida
      */
     public ArrayList<String> nuevaLinea(String linea) {
-        miArrayList.add(linea + "\n");    
+        miArrayList.add(linea);    
         return miArrayList;    
     }
 
@@ -67,4 +68,8 @@ public class Documentos {
         miArrayList.remove(num_linea - 1);
     }
     
+
+    public void modificarLinea(int num_linea, String linea){
+        miArrayList.set(num_linea - 1, linea);
+    }
 }

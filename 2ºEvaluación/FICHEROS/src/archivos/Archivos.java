@@ -69,7 +69,7 @@ public class Archivos {
         try {
             FileWriter myWriter = new FileWriter(nombreFichero);
             for (String linea : documento) {
-                myWriter.write(linea);
+                myWriter.write(linea + "\n");
             }            
             myWriter.close();            
         } catch (IOException e) {
@@ -88,9 +88,9 @@ public class Archivos {
         return myObj.delete();
     }
 
-    public static void verDocumento(){
-        for(int i = 0; i < miDocumento.getArrayList.size(); i++){
-            System.out.println(i + 1 + " " + miDocumento.get(i));
-        }
-    }
+    // public static void verDocumento(){
+    //     for(int i = 0; i < miDocumento.getArrayList.size(); i++){
+    //         System.out.println(i + 1 + " " + miDocumento.get(i));
+    //     }
+    // }
 }
