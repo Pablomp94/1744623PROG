@@ -28,6 +28,6 @@ public class Cuadrado implements iFigura2D{
         }
     }
     public String imprimir(){
-        System.out.println("Lado del cuadrado");
+        return ("Lado del cuadrado");
     }
 }
