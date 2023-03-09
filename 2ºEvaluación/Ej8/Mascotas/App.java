@@ -62,5 +62,27 @@ public class App {
     System.out.println("HABLA:");
     miGato.habla();
 
+
+    System.out.println(" ");
+    System.out.println("...........................");
+    System.out.println("          LORO");
+    System.out.println("............................");
+    System.out.println(" ");
+
+    Loro miLoro = new Loro();
+
+    String miOrigen = "Tropical";
+
+    miLoro.setOrigen((miOrigen));
+    System.out.println("ORIGEN:");
+
+    System.out.println(miLoro.getOrigen());
+
+    System.out.println("SALUDA:");
+    miLoro.saluda();
+
+    System.out.println("VUELA:");
+    miLoro.volar();
+
   }
 }
