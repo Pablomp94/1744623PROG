@@ -9,8 +9,9 @@ public class Motos extends Terrestres{
         this.cilindrada = cilindrada;
     }
 
-    public Motos(int matricula, int modelo, int numRuedas) {
+    public Motos(int matricula, int modelo, int numRuedas, int cilindrada) {
         super(matricula, modelo, numRuedas);
+        this.cilindrada = cilindrada;
     }
 
     
