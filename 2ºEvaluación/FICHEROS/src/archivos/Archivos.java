@@ -46,11 +46,13 @@ public class Archivos {
         try {
             
             Scanner myReader = new Scanner(miFichero);
-            // Este bucle va leyendo el archivo
+            // Este bucle var leyendo el archivo
             // linea por linea
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
-                documento.add(data);
+                // Añado el /n para que incluya
+                // los saltos de linea
+                documento.add(data + "\n");
             }            
             myReader.close();            
         } catch (FileNotFoundException e) {
@@ -69,7 +71,7 @@ public class Archivos {
         try {
             FileWriter myWriter = new FileWriter(nombreFichero);
             for (String linea : documento) {
-                myWriter.write(linea + "\n");
+                myWriter.write(linea);
             }            
             myWriter.close();            
         } catch (IOException e) {
@@ -87,10 +89,4 @@ public class Archivos {
         File myObj = new File(nombreFichero);
         return myObj.delete();
     }
-
-    // public static void verDocumento(){
-    //     for(int i = 0; i < miDocumento.getArrayList.size(); i++){
-    //         System.out.println(i + 1 + " " + miDocumento.get(i));
-    //     }
-    // }
 }

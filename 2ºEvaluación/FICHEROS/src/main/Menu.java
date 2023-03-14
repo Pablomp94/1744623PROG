@@ -47,8 +47,7 @@ public class Menu {
         System.out.print("ELIGE TU OPCIÓN: ");
         Scanner sc = new Scanner(System.in);
         int opcion = sc.nextInt();
+        sc.close();
         return opcion;
     }
-
-    
 }

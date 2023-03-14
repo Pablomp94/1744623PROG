@@ -14,6 +14,7 @@ import datos.Documentos;
 public class App {
     static Documentos miDocumento = new Documentos();
     static Menu miMenu;
+    static Scanner sc = new Scanner(System.in);
     /**
      * Aplicacion principal
      * @param args argumentos de la app
@@ -30,17 +31,24 @@ public class App {
                     escribir();
                 break;
                 case 2: 
-                    miDocumento.guardar();
+                    verDocumento();
                 break;
                 case 3:
-                    vaciar();
+                    reescribir();
                 break;
                 case 4:
-                    borraLinea();
+                    modificaLinea();
                 break;
                 case 5:
-                    modificarLinea();
+                    borraLinea();
                 break;
+                case 6:
+                    //buscaCadena();
+                break;
+                case 7:
+                buscaCadena();
+                break;
+                
 
             }
         } while (opcion!=0);
@@ -52,8 +60,6 @@ public class App {
      */
     public static void escribir() {
         String linea = "";
-        Scanner sc = new Scanner(System.in);
-
         System.out.println("Escribe lineas (fin para terminar):");
         do {
             linea = sc.nextLine();
@@ -65,42 +71,104 @@ public class App {
     }
 
     /**
+     * Muestra por pantalla el documento actual
+     */
+    public static void verDocumento() {
+        // Me copio el documento en mi ArrayList
+        // para recorrer las lineas 
+        var miDoc = miDocumento.getMiArrayList();
+        // recorro la copia y muestro el 
+        // numero de linea y el contenido
+        for (int i=0; i<miDoc.size(); i++) {
+            System.out.print(i+1 + ": "+miDoc.get(i));
+        }
+    }
+
+    /**
+     * Borra el contenido del documento
+     * y empeiza a escribir en él
+     */
+    public static void reescribir() {
+        miDocumento.vaciaDocumento();
+        escribir();
+    }
+
+    /**
+     * Borra una linea del documento
+     */
+    public static void borraLinea() {
+        System.out.print("Introduce número de linea a borrar: ");
+        int linea = sc.nextInt();
+        sc.nextLine();
+        if (linea<1 || linea>miDocumento.getNumeroLineas()) {
+            System.out.println("No existe esa linea");
+        }
+        else {
+            miDocumento.borraLinea(linea);
+            
+        }
+        verDocumento();
+        System.out.println("GUARDAR CAMBIOS? (S/N)");
+        String opcion = sc.nextLine();
+        if (opcion.equals("S")) {
+            miDocumento.guardar();
+        }
+        else {
+            miDocumento = new Documentos();
+        }
+        verDocumento();
+    }
+
+
+    public static void modificaLinea() {
+        System.out.print("Introduce número de linea a borrar: ");        
+        int linea = sc.nextInt();
+        sc.nextLine(); //para borrar el salto de linea
+        if (linea < 1 || linea > miDocumento.getNumeroLineas()) {
+            System.out.println("No existe esa linea");
+        } else {
+            System.out.println("Escribe nuevo contenido:");
+            String contenido = sc.nextLine();
+            miDocumento.modificaLinea(linea, contenido);
+
+        }
+        verDocumento();
+        System.out.println("GUARDAR CAMBIOS? (S/N)");
+        String opcion = sc.nextLine();
+        if (opcion.equals("S")) {
+            miDocumento.guardar();
+        } else {
+            miDocumento = new Documentos();
+        }
+        verDocumento();
+    }
+
+    public static void buscaCadena() {
+        System.out.print("Introduce la cadena a buscar: ");
+        String cadena = sc.nextLine();
+        var lista = miDocumento.buscaCadena(cadena);
+        if (lista.size() > 0) {
+            for (String elemento : lista) {
+                System.out.print(elemento);
+            }
+        }
+        else {
+            System.out.println("NO se ha encontrado");
+        }
+    }
+
+    /**
      * crea el menu con mis opciones
      */
     public static  void crearMenu() {
         ArrayList<String> listaOpciones = new ArrayList<>();
-        listaOpciones.add("Escribir en el documento");
-        listaOpciones.add("GUARDAR");
-        listaOpciones.add("Vaciar");
-        listaOpciones.add("Eliminar linea");
-        listaOpciones.add("Modificar linea");
+        listaOpciones.add(0,"AÑADIR LINEAS");
+        listaOpciones.add(1,"VER DOCUMENTO");
+        listaOpciones.add(2,"REESCRIBIR DOCUMENTO (RESET)");
+        listaOpciones.add(3,"MODIFICAR UNA LÍNEA");
+        listaOpciones.add(4,"BORRAR UNA LINEA");        
+        listaOpciones.add(5,"BORRAR DOCUMENTO");
+        listaOpciones.add(6,"BUSCAR");
         miMenu = new Menu(listaOpciones, "DOCUMENTOS");
-
-    }
-
-    public static void vaciar(){
-        miDocumento.vaciarDocumento();
-        
-        miDocumento.guardar();
-    }
-
-    public static void borraLinea(){
-        System.out.println("Introduce numero de linea a borrar:");
-        Scanner sc = new Scanner(System.in);
-        int num_linea = sc.nextInt();
-        miDocumento.borraLinea(num_linea);
-        miDocumento.guardar();
-    }
-
-    public static void modificarLinea(){
-        System.out.println("Introduce la linea a modificar:");
-        Scanner sc = new Scanner(System.in);
-        int num_linea = sc.nextInt();
-        
-        System.out.println("Introduce la frase a cambiar:");
-        String linea = sc.next();
-
-        miDocumento.modificarLinea(num_linea, linea);
-        miDocumento.guardar();
     }
 }

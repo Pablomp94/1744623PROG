@@ -24,7 +24,17 @@ public class Documentos {
     public Documentos() {
         miArrayList = new ArrayList<>();
         miArchivo = new Archivos();
+        // BUG resuelto: tengo que pasar los
+        // datos del archivo al ArrayList
+        // para que se puedan acceder desde la App
         miArrayList = miArchivo.lee();
+    }
+
+    /**
+     * Borramos el contenido del ArrayList
+     */
+    public void vaciaDocumento () {
+        miArrayList = new ArrayList<>();
     }
 
 
@@ -34,7 +44,7 @@ public class Documentos {
      * @return el ArrayList con la linea añadida
      */
     public ArrayList<String> nuevaLinea(String linea) {
-        miArrayList.add(linea);    
+        miArrayList.add(linea + "\n");    
         return miArrayList;    
     }
 
@@ -48,28 +58,52 @@ public class Documentos {
 
     /**
      * 
-     * @return miArrayList -> la lista e lineas
+     * @return miArrayList -> la lista de lineas
      */
     public ArrayList<String> getMiArrayList() {
         return miArrayList;
     }
 
-    public void vaciarDocumento(){
-        miArrayList.clear();
-
-    }
-
-    public int getNumeroLineas(){
+    /**
+     * Devuelve el número de líneas del documento
+     */
+    public int getNumeroLineas() {
         return miArrayList.size();
     }
 
-    public void borraLinea(int num_linea){
-        
-        miArrayList.remove(num_linea - 1);
+    /**
+     * Borra la linea solicitada
+     * @param numLinea El numero de la linea a borrar
+     */
+    public void borraLinea(int numLinea) {
+        //Al empezar en cero, debemos restar 1
+        miArrayList.remove(numLinea - 1);
     }
-    
 
-    public void modificarLinea(int num_linea, String linea){
-        miArrayList.set(num_linea - 1, linea);
+    /**
+     * Modifica una linea con un nuevo valor
+     * @param numLinea El numero de  la linea a modificar
+     * @param linea El nuevo contenido de la linea
+     */
+    public void modificaLinea(int numLinea , String linea) {
+        // Al empezar en cero, debemos restar 1
+        miArrayList.set(numLinea - 1 , linea + "/n");
     }
+
+    /**
+     * 
+     * 
+     */
+    public ArrayList<String> buscaCadena(String cadena) {
+        var devolver = new ArrayList<String>();
+        for (String lineaActual : miArrayList) {
+            if (lineaActual.contains(cadena)) {
+                devolver.add(lineaActual);
+            }
+        }
+        return devolver;
+    }
+
+    
+    
 }
