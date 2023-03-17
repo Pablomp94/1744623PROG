@@ -1,4 +1,4 @@
-package archivos;
+package modelo;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -11,22 +11,21 @@ import java.util.Scanner;
  * Clase Archivos
  * Implementa la gestion de ficheros en disco
  * @author Joaquin Rios
- * @version 2023.02.28                      
+ * @version 2023.02.28
  * 
  */
 public class Archivos {
     /**
-     * nombreFichero almacena el nombre del archivo a leer
-     * TODO: Hacer que el nombre del archivo se mande 
-     * en el cosntructor.
+     * nombreFichero almacena el nombre del archivo a leers
      */
-    private String nombreFichero= "archivo.txt";
+    private String nombreFichero;
 
     /**
      * <b>Este metodo crea un archivo nuevo</b>
      * @see <a href="https://www.w3schools.com/files">W3SCHOOLS</a>
      */
-    public  Archivos() {
+    public  Archivos(String nombreFichero) {
+        this.nombreFichero = nombreFichero;
         try {
             File miFichero = new File(nombreFichero);
             miFichero.createNewFile();            
