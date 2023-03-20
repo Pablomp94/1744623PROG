@@ -25,6 +25,9 @@ public class Agenda {
 
     public void insertarContacto(Persona pepe) {
         agendaViva.add(pepe);
+        
+        archivoAgenda.escribe(null);
+        
     }
 
     

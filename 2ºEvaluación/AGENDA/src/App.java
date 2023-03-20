@@ -29,11 +29,15 @@ public class App {
         System.out.println("Anyo de nacimiento");
         String anyo = System.console().readLine();
 
+
+
+
         String fecha = anyo + "-" + mes + "-" + dia;
 
         LocalDate fechaNac = LocalDate.parse(fecha);
         pepe.setFechaNacimiento(fechaNac);
         miAgenda.insertarContacto(pepe);
+        
 
     }
 }
