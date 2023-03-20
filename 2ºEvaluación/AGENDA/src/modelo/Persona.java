@@ -1,6 +1,8 @@
 package modelo;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Persona {
     private final String nombre;
@@ -40,6 +42,20 @@ public class Persona {
     }
     public void setFechaNacimiento(LocalDate fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public ArrayList <String> datosPersona(){
+
+        ArrayList <String> listaDatos = new ArrayList<>();
+
+        listaDatos.add(nombre);
+        listaDatos.add(apellidos);
+        listaDatos.add(String.valueOf(numTelefono));
+        listaDatos.add(email);
+
+        String fecha = fechaNacimiento.getYear() + "-" + fechaNacimiento.getMonth() + "-" + fechaNacimiento.getDayOfMonth();
+         listaDatos.add(fecha);
+         return listaDatos;
     }
 
     public int comprobarCumpleanyos() {
