@@ -2,27 +2,79 @@ import java.time.LocalDate;
 
 import controlador.Agenda;
 import modelo.Persona;
+import java.util.*;
 
 public class App {
 
     static Agenda miAgenda = new Agenda();
 
-    public static void main(String[] args) throws Exception {        
-        crearContacto();
+    public static void main(String[] args) throws Exception { 
+        
+        Scanner sc = new Scanner(System.in);
+        
+        Menu miMenu = new Menu();
+    
+        int opcion = 1;
+
+        do{
+
+            miMenu.menu();
+
+            opcion = sc.nextInt();
+
+            crearContacto();
+        }while(opcion != 0);
+        
     }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public static void crearContacto() {
+
+        String nombre;
+        do{
         System.out.println("Introduce nombre");
-        String nombre = System.console().readLine();
+         nombre = System.console().readLine();
+         if(nombre.matches("[a-zA-Z]") == false){
+            System.out.println("Introduce valores validos, solo letras");
+         }
+        }while(nombre.matches("[a-zA-Z]") == false);
         var pepe = new Persona(nombre);
 
         System.out.println("Introduce apellidos");
         String apellidos = System.console().readLine();
+        pepe.setApellidos(apellidos);
+        
         System.out.println("Introduce email");
         String email = System.console().readLine();
+        pepe.setEmail(email);
+        
         System.out.println("Introduce telefono");
         String telefono = System.console().readLine();
+        pepe.setNumTelefono(telefono);
         
         
         String dia = "01";

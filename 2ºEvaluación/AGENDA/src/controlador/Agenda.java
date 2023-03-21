@@ -35,7 +35,7 @@ public class Agenda {
         for (Persona p : agendaViva) {
 
             for (String dato : p.datosPersona()) {
-                todosContactos.add(dato);
+                todosContactos.add(dato + ";");
             }
 
             todosContactos.add("\n");

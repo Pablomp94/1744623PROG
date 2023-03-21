@@ -7,7 +7,7 @@ import java.util.List;
 public class Persona {
     private final String nombre;
     private String apellidos; 
-    private int numTelefono;
+    private String numTelefono;
     private String email;
     private LocalDate fechaNacimiento;
 
@@ -25,11 +25,11 @@ public class Persona {
     public void setApellidos(String apellidos) {
         this.apellidos = apellidos;
     }
-    public int getNumTelefono() {
+    public String getNumTelefono() {
         return numTelefono;
     }
-    public void setNumTelefono(int numTelefono) {
-        this.numTelefono = numTelefono;
+    public void setNumTelefono(String telefono) {
+        this.numTelefono = telefono;
     }
     public String getEmail() {
         return email;
