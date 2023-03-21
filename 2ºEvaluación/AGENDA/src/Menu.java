@@ -1,5 +1,9 @@
 public class Menu {
     
+    /**
+     * Metodo menu, el cual se va a mostrar en pantalla para pedirle al usuario que opcion quiere elegir.
+     */
+
     public void menu(){
 
         System.out.println("...............................................");

@@ -22,7 +22,19 @@ public class App {
 
             opcion = sc.nextInt();
 
-            crearContacto();
+            if(opcion == 1){
+                crearContacto();
+                
+            }
+            
+            if(opcion == 2){
+                modificarContacto();
+            }
+
+            if(opcion == 3){
+                //leerContactos();
+            }
+
         }while(opcion != 0);
         
     }
@@ -49,20 +61,24 @@ public class App {
 
 
 
-
+    /**
+     * Metodo para crear el Contacto, en donde se va a poner los datos en cada propiedad correspondida de la Persona, así como su nombre, apellidos, telefono, email, etc.
+     * @return El valor de cada variable, se inserta la fecha de nacimiento de la persona y se inserta en contactos a la persona.
+     */
 
 
     public static void crearContacto() {
 
+        
+
         String nombre;
-        do{
+      
         System.out.println("Introduce nombre");
          nombre = System.console().readLine();
-         if(nombre.matches("[a-zA-Z]") == false){
-            System.out.println("Introduce valores validos, solo letras");
-         }
-        }while(nombre.matches("[a-zA-Z]") == false);
-        var pepe = new Persona(nombre);
+        
+        
+        var pepe  = new Persona(nombre);
+
 
         System.out.println("Introduce apellidos");
         String apellidos = System.console().readLine();
@@ -111,7 +127,7 @@ public class App {
             anyo = System.console().readLine();
             if((anyo.matches("[1]" + "[9]" + "[0-9]" + "[0-9]") == false) && (anyo.matches("[2]" + "[0]" + "[0]" + "[0-9]")) == false){
                 System.out.println("Los datos introducidos no son validos, vuelve a intentarlo");
-            }
+        }
 
         }while((anyo.matches("[1]" + "[9]" + "[0-9]" + "[0-9]") == false) && (anyo.matches("[2]" + "[0]" + "[0]" + "[0-9]")) == false);
 
@@ -121,7 +137,19 @@ public class App {
         LocalDate fechaNac = LocalDate.parse(fecha);
         pepe.setFechaNacimiento(fechaNac);
         miAgenda.insertarContacto(pepe);
+
+        pepe.comprobarCumpleanyos();
         
 
     }
+
+    public static void modificarContacto(){
+
+        System.out.println("Introduce el nombre de la persona a modificar");
+
+
+
+    }
+
+
 }
