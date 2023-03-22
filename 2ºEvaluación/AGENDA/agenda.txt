@@ -1,2 +1,8 @@
+<<<<<<< HEAD
 Samuel;Espin;dvsicno;23456789;2004-SEPTEMBER-11;
 Pablo;morales;243242343;dsadsadas;2004-NOVEMBER-4;
+=======
+Pablo;Master;21321312;dasdsadsaa;2004-NOVEMBER-4;
+eqdda;dada;311;daadad;2004-FEBRUARY-1;
+eqdda;adasd;123;pasdpa;2003-APRIL-3;
+>>>>>>> fbb1fb6792063587d468b80736a7e9ece8d977f7

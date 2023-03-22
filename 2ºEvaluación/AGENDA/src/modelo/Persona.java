@@ -5,6 +5,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Persona {
+
+    /**
+     * Valores de las propiedades de Persona
+     * Se generan los getters y setters 
+     */
     private final String nombre;
     private String apellidos; 
     private String numTelefono;
@@ -44,6 +49,12 @@ public class Persona {
         this.fechaNacimiento = fechaNacimiento;
     }
 
+
+    /**
+     * Almacena los datos anteriores en un ArrayList de tipo String, el cual se va a usar mas a delante para escribir dicha informacion en el documento de texto agenda.
+     * @return devuelve la informacion de listaDatos.
+     */
+
     public ArrayList <String> datosPersona(){
 
         ArrayList <String> listaDatos = new ArrayList<>();
@@ -57,6 +68,11 @@ public class Persona {
          listaDatos.add(fecha);
          return listaDatos;
     }
+
+    /**
+     * Metodo para comprobar si hoy es el dia de su cumpleaños
+     * @return Si es el cumpleaños devuelve el numero de años que cumple
+     */
 
     public int comprobarCumpleanyos() {
         LocalDate hoy = LocalDate.now();
