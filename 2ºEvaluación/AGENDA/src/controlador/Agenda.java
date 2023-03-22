@@ -8,9 +8,9 @@ import modelo.Persona;
 
 public class Agenda {
     // El arrchivo que guarda los datos
-    private Archivos archivoAgenda = new Archivos("agenda.txt");
+    public Archivos archivoAgenda = new Archivos("agenda.txt");
     // La agenda en memoria
-    private ArrayList<Persona> agendaViva = new ArrayList<Persona>();
+    public ArrayList<Persona> agendaViva = new ArrayList<Persona>();
 
     public Agenda() {
         guardaArchivo();
@@ -53,8 +53,6 @@ public class Agenda {
         miArrayList = archivoAgenda.lee();
 
         for(String a : miArrayList){
-
-            
 
             String[] miArray = a.split(";");
 
