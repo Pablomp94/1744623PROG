@@ -13,6 +13,7 @@ public class Agenda {
     private ArrayList<Persona> agendaViva = new ArrayList<Persona>();
 
     public Agenda() {
+        guardaArchivo();
     }
 
     public ArrayList<Persona> getAgendaViva() {
@@ -26,6 +27,7 @@ public class Agenda {
     public void insertarContacto(Persona pepe) {
         agendaViva.add(pepe);
         guardar();
+        
     }
 
     public void guardar() {
@@ -42,6 +44,35 @@ public class Agenda {
         }
 
         archivoAgenda.escribe(todosContactos);
+    }
+
+    public void guardaArchivo(){
+
+        ArrayList<String> miArrayList = new ArrayList<>();
+
+        miArrayList = archivoAgenda.lee();
+
+        for(String a : miArrayList){
+
+            
+
+            String[] miArray = a.split(";");
+
+            Persona persona = new Persona(miArray[0]);
+
+            persona.setApellidos(miArray[1]);
+            
+            persona.setEmail(miArray[2]);
+
+            persona.setNumTelefono(miArray[3]);
+
+            persona.setFechaNacimiento(LocalDate.parse(miArray[4]));
+
+            agendaViva.add(persona);
+        }
+
+
+
     }
 
 }

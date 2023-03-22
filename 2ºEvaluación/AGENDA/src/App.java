@@ -23,12 +23,10 @@ public class App {
             opcion = sc.nextInt();
 
             crearContacto();
+
         }while(opcion != 0);
         
     }
-
-
-
 
 
 
@@ -58,10 +56,10 @@ public class App {
         do{
         System.out.println("Introduce nombre");
          nombre = System.console().readLine();
-         if(nombre.matches("[a-zA-Z]") == false){
+         if(!nombre.matches("[A-z]+")){
             System.out.println("Introduce valores validos, solo letras");
          }
-        }while(nombre.matches("[a-zA-Z]") == false);
+        }while(!nombre.matches("[A-z]+"));
         var pepe = new Persona(nombre);
 
         System.out.println("Introduce apellidos");
@@ -122,6 +120,5 @@ public class App {
         pepe.setFechaNacimiento(fechaNac);
         miAgenda.insertarContacto(pepe);
         
-
     }
 }
