@@ -12,10 +12,12 @@ public class Agenda {
     // La agenda en memoria
     public ArrayList<Persona> agendaViva = new ArrayList<Persona>();
 
+    // LLama al metodo guardaArchivo cuando se instancie la clase
     public Agenda() {
         guardaArchivo();
     }
 
+   // Los getters y setters de la ArrayList agendaViva.
     public ArrayList<Persona> getAgendaViva() {
         return agendaViva;
     }
@@ -24,15 +26,33 @@ public class Agenda {
         this.agendaViva = agendaViva;
     }
 
+    /**
+     * Esta funcion anade un contacto en la lista agendaViva y guarda los cambios.
+     * 
+     * @param pepe es el nombre del objeto que quiero que se anada a agendaViva.
+     */
     public void insertarContacto(Persona pepe) {
         agendaViva.add(pepe);
         guardar();
         
     }
 
+    /**
+     * Este metodo realiza la funcion de escribir en el documento txt los cambios realizados en la app
+     * @param todosContactos es el nombre del ArrayList en donde se va a ir almacenando los datos realizados en la app
+     * @param p es el nombre que se le ha asignado al objeto persona
+     */
+    
+    /**
+    * (Bucle for dentro del anterior bucle)
+    * En este bucle se recorre todos los contactos junto sus datos en donde se van almacenando en la variable dato
+    * @param dato es el nombre de la variable en donde se almacena los datos de cada contacto 
+    */
     public void guardar() {
 
         ArrayList<String> todosContactos = new ArrayList<>();
+
+        
 
         for (Persona p : agendaViva) {
 
@@ -45,6 +65,14 @@ public class Agenda {
 
         archivoAgenda.escribe(todosContactos);
     }
+
+
+    /**
+     * En este metodo se guardan los valores/propiedades introducidos de cada contacto y los construye anadiendo asi personas/contactos
+     * 
+     */
+
+
 
     public void guardaArchivo(){
 
@@ -72,9 +100,16 @@ public class Agenda {
     }
 
 
+
+    /**
+     * Guarda la informacion del ArrayList en el cual estan todos los contactos y lo almacena en otro ArrayList de tipo string, el cual se mostrara por pantalla
+     * @param p es el nombre de la variable que se le ha asignado al objeto persona 
+     * @param dato es el nombre de la variable en donde se almacena los datos de cada contacto 
+     */
+
     public void leerContactos(){
 
-        //System.out.println(miAgenda.getAgendaViva());
+        
 
         ArrayList<String> todosContactos = new ArrayList<>();
 
@@ -91,7 +126,14 @@ public class Agenda {
 
     }
 
-
+    /**
+     * Este metodo modifica los datos de un contacto y guarda los cambios
+     * @param i es la variable de tipo int en la que se escoje a que contacto cambiar sus datos
+     * @param apellidos es la variable de tipo string en la que se almacena los apellidos del contacto
+     * @param email es la variable de tipo string en la que se almacena el email del contacto
+     * @param telefono es la variable de tipo string en la que se almacena el telefono del contacto
+     * @param fechanacimiento es la variable de tipo string en la que se almacena la fecha de nacimiento del contacto
+     */
 
     public void modificarContacto(int i, String apellidos, String email, String telefono, String fechanacimiento){
 
