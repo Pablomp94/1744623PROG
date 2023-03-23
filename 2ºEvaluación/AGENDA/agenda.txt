@@ -1,6 +1,4 @@
-Pablo;Morales;312321312;dasdsapdasdpas;2001-06-01;
-Samuel;Espin;fdsafsd@vzxvzfx.com;24532;2000-08-01;
-sadf;Master;644471654;master@gmail.com;2004-11-04;
-Jose;Morales;dsapdsapdsa;312312312;2003-05-03;
-Pepe;Master;dpsadpsa@dsadsa;123123;2004-03-23;
-ghjgjhg;jjgjjh;7657656;gjhgjh;2000-03-23;
+Samuel;Espin;24532;fdsafsd@vzxvzfx.com;2000-08-01;
+Jose;Morales;312312312;dsapdsapdsa;2003-05-03;
+Pepe;Master;123123;dpsadpsa@dsadsa;2004-03-23;
+Pablo;Morales;644471654;kirbix94@gmail.com;2004-11-04;
