@@ -7,10 +7,10 @@ import java.util.*;
 public class App {
 
     static Agenda miAgenda = new Agenda();
+    private static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) throws Exception { 
         
-        Scanner sc = new Scanner(System.in);
         
         Menu miMenu = new Menu();
     
@@ -28,12 +28,7 @@ public class App {
 
             if(opcion == 2){
                 
-                System.out.println("Introduce la posicion de la persona a modificar, empezando por el 0");
-
-                miAgenda.leerContactos();
-
-                int i = sc.nextInt();
-
+           
                 modificarContacto();
 
 
@@ -160,8 +155,13 @@ public class App {
    
     public static void modificarContacto(){
 
+        System.out.println("Introduce la posicion de la persona a modificar, empezando por el 0");
 
-        String nombre;
+        miAgenda.leerContactos();
+
+        int i = sc.nextInt();
+
+        /*String nombre;
         do{
         System.out.println("Introduce nombre");
          nombre = System.console().readLine();
@@ -170,22 +170,19 @@ public class App {
          }
         }while(!nombre.matches("[A-z]+"));
         
-        var pepe = new Persona(nombre);
+        var pepe = new Persona(nombre);*/
         
         
 
 
         System.out.println("Introduce apellidos");
         String apellidos = System.console().readLine();
-        pepe.setApellidos(apellidos);
         
         System.out.println("Introduce email");
         String email = System.console().readLine();
-        pepe.setEmail(email);
         
         System.out.println("Introduce telefono");
         String telefono = System.console().readLine();
-        pepe.setNumTelefono(telefono);
         
         
         String dia = "01";
@@ -229,7 +226,9 @@ public class App {
 
         String fecha = anyo + "-" + mes + "-" + dia;
 
-        miAgenda.modificarContacto(0, nombre, apellidos, email, 0, fecha);
+        miAgenda.modificarContacto(i, apellidos, email, telefono, fecha);
+
+
 
 
     }

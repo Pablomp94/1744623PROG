@@ -1,3 +1,4 @@
 Pablo;Morales;312321312;dasdsapdasdpas;2001-06-01;
 Samuel;Espin;fdsafsd@vzxvzfx.com;24532;2000-08-01;
-sadf;asg;452;safg;2000-01-01;
+sadf;Master;644471654;master@gmail.com;2004-11-04;
+Jose;Morales;dsapdsapdsa;312312312;2003-05-03;

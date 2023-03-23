@@ -93,12 +93,19 @@ public class Agenda {
 
 
 
-    public void modificarContacto(int i, String nombre, String apellidos, String email, int telefono, String fechanacimiento){
+    public void modificarContacto(int i, String apellidos, String email, String telefono, String fechanacimiento){
 
-    
+        Persona p = agendaViva.get(i);
 
+        p.setApellidos(apellidos);
 
+        p.setEmail(email);
 
+        p.setNumTelefono(telefono);
+
+        p.setFechaNacimiento(LocalDate.parse(fechanacimiento));
+
+        guardar();
     }
 
 }
