@@ -64,8 +64,8 @@ public class Persona {
         listaDatos.add(String.valueOf(numTelefono));
         listaDatos.add(email);
 
-        String fecha = fechaNacimiento.getYear() + "-" + fechaNacimiento.getMonth() + "-" + fechaNacimiento.getDayOfMonth();
-         listaDatos.add(fecha);
+       // String fecha = fechaNacimiento.getYear() + "-" + fechaNacimiento.getMonth() + "-" + fechaNacimiento.getDayOfMonth();
+         listaDatos.add(fechaNacimiento.toString());
          return listaDatos;
     }
 

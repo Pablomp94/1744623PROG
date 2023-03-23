@@ -28,10 +28,21 @@ public class App {
 
             if(opcion == 2){
                 
+                System.out.println("Introduce la posicion de la persona a modificar, empezando por el 0");
+
+                miAgenda.leerContactos();
+
+                int i = sc.nextInt();
+
+                modificarContacto();
+
+
+
+                
             }
 
             if(opcion == 3){
-                leerContactos();
+                miAgenda.leerContactos();
             }
             
         }while(opcion != 0);
@@ -141,34 +152,89 @@ public class App {
         LocalDate fechaNac = LocalDate.parse(fecha);
         pepe.setFechaNacimiento(fechaNac);
         miAgenda.insertarContacto(pepe);
-
-        pepe.comprobarCumpleanyos();
         
     }
 
+   
+
+   
     public static void modificarContacto(){
 
-        System.out.println("Introduce el nombre de la persona a modificar");
 
-    }
+        String nombre;
+        do{
+        System.out.println("Introduce nombre");
+         nombre = System.console().readLine();
+         if(!nombre.matches("[A-z]+")){
+            System.out.println("Introduce valores validos, solo letras");
+         }
+        }while(!nombre.matches("[A-z]+"));
+        
+        var pepe = new Persona(nombre);
+        
+        
 
-    public static void leerContactos(){
 
-        //System.out.println(miAgenda.getAgendaViva());
-
-        ArrayList<String> todosContactos = new ArrayList<>();
-
-        for (Persona p : miAgenda.agendaViva) {
-
-            for (String dato : p.datosPersona()) {
-                todosContactos.add(dato + ";");
+        System.out.println("Introduce apellidos");
+        String apellidos = System.console().readLine();
+        pepe.setApellidos(apellidos);
+        
+        System.out.println("Introduce email");
+        String email = System.console().readLine();
+        pepe.setEmail(email);
+        
+        System.out.println("Introduce telefono");
+        String telefono = System.console().readLine();
+        pepe.setNumTelefono(telefono);
+        
+        
+        String dia = "01";
+        
+        do{
+            System.out.println("Dia de nacimiento");
+            dia = System.console().readLine();
+            if((dia.matches("[0]" + "[1-9]") == false) && (dia.matches("[1-2]" + "[0-9]") == false) && (dia.matches("[3]" + "[0-1]") == false)){
+                System.out.println("El valor introducido no es valido, vuelvelo a intentar");
             }
+        }while(((dia.matches("[0]" + "[1-9]") == false) && (dia.matches("[1-2]" + "[0-9]") == false) && (dia.matches("[3]" + "[0-1]") == false)));
 
-            todosContactos.add("\n");
+        String mes = "01";
+       
+        do{
+        
+            System.out.println("Mes de nacimiento");
+            
+            mes = System.console().readLine();
+
+            if((mes.matches("[0]" + "[1-9]") == false) && mes.matches("[1]" + "[0-2]")== false){
+                System.out.println("Los datos introducidos no son validos, vuelve a intentarlo");
+            }
+        
+        }while((mes.matches("[0]" + "[1-9]") == false) && mes.matches("[1]" + "[0-2]") == false);
+        
+        
+        
+
+        String anyo = "2001";
+
+        do{
+            System.out.println("Anyo de nacimiento");
+            anyo = System.console().readLine();
+            if((anyo.matches("[1]" + "[9]" + "[0-9]" + "[0-9]") == false) && (anyo.matches("[2]" + "[0]" + "[0]" + "[0-9]")) == false){
+                System.out.println("Los datos introducidos no son validos, vuelve a intentarlo");
         }
 
-        System.out.println(todosContactos);
+        }while((anyo.matches("[1]" + "[9]" + "[0-9]" + "[0-9]") == false) && (anyo.matches("[2]" + "[0]" + "[0]" + "[0-9]")) == false);
+
+
+        String fecha = anyo + "-" + mes + "-" + dia;
+
+        miAgenda.modificarContacto(0, nombre, apellidos, email, 0, fecha);
+
 
     }
+
+
+
 
 }

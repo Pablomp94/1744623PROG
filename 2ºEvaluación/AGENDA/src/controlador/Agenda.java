@@ -69,6 +69,34 @@ public class Agenda {
             agendaViva.add(persona);
         }
 
+    }
+
+
+    public void leerContactos(){
+
+        //System.out.println(miAgenda.getAgendaViva());
+
+        ArrayList<String> todosContactos = new ArrayList<>();
+
+        for (Persona p : agendaViva) {
+
+            for (String dato : p.datosPersona()) {
+                todosContactos.add(dato + ";");
+            }
+
+            todosContactos.add("\n");
+        }
+
+        System.out.println(todosContactos);
+
+    }
+
+
+
+    public void modificarContacto(int i, String nombre, String apellidos, String email, int telefono, String fechanacimiento){
+
+    
+
 
 
     }
