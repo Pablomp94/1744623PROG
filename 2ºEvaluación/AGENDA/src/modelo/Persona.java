@@ -69,22 +69,6 @@ public class Persona {
          return listaDatos;
     }
 
-    /**
-     * Metodo para comprobar si hoy es el dia de su cumpleaños
-     * @return Si es el cumpleaños devuelve el numero de años que cumple
-     */
-
-    public int comprobarCumpleanyos() {
-        LocalDate hoy = LocalDate.now();
-
-        if (hoy.getDayOfMonth()==getFechaNacimiento().getDayOfMonth() &&
-        hoy.getMonthValue()==getFechaNacimiento().getMonthValue()) {
-            return hoy.getYear() - getFechaNacimiento().getYear();   
-        }
-        else {
-            return -1;
-        }
-    }
-
+   
     
 }

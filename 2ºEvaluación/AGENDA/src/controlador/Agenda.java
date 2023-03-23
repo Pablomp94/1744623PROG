@@ -108,4 +108,41 @@ public class Agenda {
         guardar();
     }
 
+
+
+      /**
+     * Metodo para comprobar si hoy es el dia de su cumpleaños
+     * @return Si es el cumpleaños devuelve el numero de años que cumple y si no pues te indica que no es su cumpleaños.
+     */
+
+
+    public  int comprobarCumple(int i){
+
+        int res = 0;
+
+        Persona p = agendaViva.get(i);
+
+        p.getFechaNacimiento();
+
+        LocalDate hoy = LocalDate.now();
+
+        if (hoy.getDayOfMonth()==p.getFechaNacimiento().getDayOfMonth() &&
+        hoy.getMonthValue()==p.getFechaNacimiento().getMonthValue()) {
+
+            System.out.println("Hoy es su cumpleanyos y cumple: " + (hoy.getYear() - p.getFechaNacimiento().getYear()) + " años");
+            
+        }
+        else {
+             res = -1;
+        }
+
+        if(res == -1){
+            System.out.println("Hoy no es su cumpleaños");
+        }
+        return res;
+
+    }
+
 }
+
+

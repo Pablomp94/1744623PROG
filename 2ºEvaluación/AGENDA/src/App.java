@@ -39,6 +39,12 @@ public class App {
             if(opcion == 3){
                 miAgenda.leerContactos();
             }
+
+
+
+            if(opcion == 5){
+                cumpleanyos();
+            }
             
         }while(opcion != 0);
         
@@ -161,20 +167,7 @@ public class App {
 
         int i = sc.nextInt();
 
-        /*String nombre;
-        do{
-        System.out.println("Introduce nombre");
-         nombre = System.console().readLine();
-         if(!nombre.matches("[A-z]+")){
-            System.out.println("Introduce valores validos, solo letras");
-         }
-        }while(!nombre.matches("[A-z]+"));
-        
-        var pepe = new Persona(nombre);*/
-        
-        
-
-
+                
         System.out.println("Introduce apellidos");
         String apellidos = System.console().readLine();
         
@@ -234,6 +227,17 @@ public class App {
     }
 
 
+    public static void cumpleanyos(){
+
+        System.out.println("Introduce la posicion del contacto a saber si es o no su cumpleaños, empezando por el 0");
+
+        miAgenda.leerContactos();
+
+        int i = sc.nextInt();
+
+        miAgenda.comprobarCumple(i);
+
+    }
 
 
 }
