@@ -6,69 +6,73 @@ import java.util.List;
 
 public class Persona {
 
-    /**
-     * Valores de las propiedades de Persona
-     * Se generan los getters y setters 
-     */
-    private final String nombre;
-    private String apellidos; 
-    private String numTelefono;
-    private String email;
-    private LocalDate fechaNacimiento;
+  //Declaramos las variables que vamos a usar en el programa//
+  private final String nombre;
+  private String apellidos;
+  private String numTelefono;
+  private String email;
+  private LocalDate fechaNacimiento;
 
-    public Persona(String nombre) {
-        this.nombre = nombre;
-    }
+  /**
+   * Valores de las propiedades de Persona
+   * Se generan los getters y setters
+   */
 
-    public String getNombre() {
-        return nombre;
-    }
+  public Persona(String nombre) {
+    this.nombre = nombre;
+  }
 
-    public String getApellidos() {
-        return apellidos;
-    }
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
-    }
-    public String getNumTelefono() {
-        return numTelefono;
-    }
-    public void setNumTelefono(String telefono) {
-        this.numTelefono = telefono;
-    }
-    public String getEmail() {
-        return email;
-    }
-    public void setEmail(String email) {
-        this.email = email;
-    }
-    public LocalDate getFechaNacimiento() {
-        return fechaNacimiento;
-    }
-    public void setFechaNacimiento(LocalDate fechaNacimiento) {
-        this.fechaNacimiento = fechaNacimiento;
-    }
+  public String getNombre() {
+    return nombre;
+  }
 
+  public String getApellidos() {
+    return apellidos;
+  }
 
-    /**
-     * Almacena los datos anteriores en un ArrayList de tipo String, el cual se va a usar mas a delante para escribir dicha informacion en el documento de texto agenda.
-     * @return devuelve la informacion de listaDatos.
-     */
+  public void setApellidos(String apellidos) {
+    this.apellidos = apellidos;
+  }
 
-    public ArrayList <String> datosPersona(){
+  public String getNumTelefono() {
+    return numTelefono;
+  }
 
-        ArrayList <String> listaDatos = new ArrayList<>();
+  public void setNumTelefono(String telefono) {
+    this.numTelefono = telefono;
+  }
 
-        listaDatos.add(nombre);
-        listaDatos.add(apellidos);
-        listaDatos.add(String.valueOf(numTelefono));
-        listaDatos.add(email);
+  public String getEmail() {
+    return email;
+  }
 
-       // String fecha = fechaNacimiento.getYear() + "-" + fechaNacimiento.getMonth() + "-" + fechaNacimiento.getDayOfMonth();
-         listaDatos.add(fechaNacimiento.toString());
-         return listaDatos;
-    }
+  public void setEmail(String email) {
+    this.email = email;
+  }
 
-   
-    
+  public LocalDate getFechaNacimiento() {
+    return fechaNacimiento;
+  }
+
+  public void setFechaNacimiento(LocalDate fechaNacimiento) {
+    this.fechaNacimiento = fechaNacimiento;
+  }
+
+  /**
+   * Almacena los datos anteriores en un ArrayList de tipo String, el cual se va a usar mas a delante para escribir dicha informacion en el documento de texto agenda.
+   * @return devuelve la informacion de listaDatos.
+   */
+
+  public ArrayList<String> datosPersona() {
+    ArrayList<String> listaDatos = new ArrayList<>();
+
+    listaDatos.add(nombre);
+    listaDatos.add(apellidos);
+    listaDatos.add(String.valueOf(numTelefono));
+    listaDatos.add(email);
+
+    // String fecha = fechaNacimiento.getYear() + "-" + fechaNacimiento.getMonth() + "-" + fechaNacimiento.getDayOfMonth();
+    listaDatos.add(fechaNacimiento.toString());
+    return listaDatos;
+  }
 }

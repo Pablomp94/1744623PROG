@@ -24,6 +24,8 @@ public class App {
 
         System.out.println(" ");
 
+       // Un bucle do while que se utiliza para mostrar el menú y las opciones que el usuario puede
+       // elegir.
         do {
 
             miMenu.menu();
@@ -55,7 +57,7 @@ public class App {
     /**
      * Metodo para crear el Contacto, en donde se va a poner los datos en cada
      * propiedad correspondida de la Persona, así como su nombre, apellidos,
-     * telefono, email, etc.
+     * telefono, email, etc, y lo agrega a la agenda
      * 
      * @return El valor de cada variable, se inserta la fecha de nacimiento de la
      *         persona y se inserta en contactos a la persona.
@@ -148,33 +150,69 @@ public class App {
         } while ((anyo.matches("[1]" + "[9]" + "[0-9]" + "[0-9]") == false)
                 && (anyo.matches("[2]" + "[0]" + "[0]" + "[0-9]")) == false);
 
+        // Concatenamos el anyo, el mes y el dia en una cadena.
         String fecha = anyo + "-" + mes + "-" + dia;
 
         LocalDate fechaNac = LocalDate.parse(fecha);
         pepe.setFechaNacimiento(fechaNac);
+        // Agregando el objeto `pepe` al objeto `miAgenda`.
         miAgenda.insertarContacto(pepe);
 
     }
 
+    
+    /**
+     * Modifica un contacto en la agenda
+     */
     public static void modificarContacto() {
 
         System.out.println("Introduce la posicion de la persona a modificar, empezando por el 0");
 
+        //Leer los contactos y luego pedirle al usuario que ingrese la posicion del contacto el cual se modificara
         miAgenda.leerContactos();
 
         int i = sc.nextInt();
 
-        System.out.println("Introduce apellidos");
-        String apellidos = System.console().readLine();
+        //Solicitamos al usuario que ingrese los nuevos datos del contacto a cambiar
+        
+        // Una validación de los datos introducidos por el usuario.
+        String apellidos;
 
-        System.out.println("Introduce email");
-        String email = System.console().readLine();
+        do{
+            System.out.println("Introduce apellidos");
+            apellidos = System.console().readLine();
+            if (!apellidos.matches("[A-z]+")) {
+                System.out.println("Introduce valores validos, solo letras");
+            }
+        
+        }while(!apellidos.matches("[A-z]+"));
+       
 
-        System.out.println("Introduce telefono");
-        String telefono = System.console().readLine();
+
+        String email;
+        do{
+            System.out.println("Introduce email");
+            email = System.console().readLine();
+            if(!email.matches(".*@.*[.].*")){
+                System.out.println("Introduce los valores validos, debe de tener @ y un . en el email");
+            }
+        }while(!email.matches(".*@.*[.].*"));
+      
+
+
+        String telefono;
+        do{
+            System.out.println("Introduce telefono");
+            telefono = System.console().readLine();
+            if(!telefono.matches("[0-9]+")){
+                System.out.println("Introduce los valores validos, solo numeros para el telefono");
+            }
+        }while(!telefono.matches("[0-9]+"));
+      
 
         String dia = "01";
 
+       // Comprobando si la entrada del usuario es una fecha válida.
         do {
             System.out.println("Dia de nacimiento");
             dia = System.console().readLine();
@@ -212,18 +250,25 @@ public class App {
         } while ((anyo.matches("[1]" + "[9]" + "[0-9]" + "[0-9]") == false)
                 && (anyo.matches("[2]" + "[0]" + "[0]" + "[0-9]")) == false);
 
+        // Concatenamos el anyo, el mes y el dia en una cadena.
         String fecha = anyo + "-" + mes + "-" + dia;
 
+        // Llamando al metodo modificarContacto desde la clase Agenda y pasando los parametros i, apellidos, email, telefono, fecha.
         miAgenda.modificarContacto(i, apellidos, email, telefono, fecha);
 
     }
 
+    /**
+     * 
+     */
     public static void cumpleanyos() {
 
+       // Comprobando si hay un cumpleanyos hoy.
         ArrayList<Persona> listaContactos = miAgenda.getAgendaViva();
 
         int i;
 
+        //Iterando a traves de la lista de contactos.
         for (i = 0; i < listaContactos.size(); i++) {
 
             miAgenda.comprobarCumple(i);
@@ -231,6 +276,9 @@ public class App {
 
     }
 
+    /**
+     * 
+     */
     public static void borrarContacto(){
 
         System.out.println("Introduce la posicion del contacto a eliminar, empezando por el 0");
