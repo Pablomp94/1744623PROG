@@ -16,7 +16,18 @@ public class App {
     
         int opcion = 1;
 
+        System.out.println(" ");
+        System.out.println("...........................");
+        System.out.println("    .....CUMPLEAÑOS.....");
+        System.out.println("...........................");
+            
+        cumpleanyos();
+
+        System.out.println(" ");
+
         do{
+            
+            
             
             miMenu.menu();
 
@@ -42,9 +53,9 @@ public class App {
 
 
 
-            if(opcion == 5){
-                cumpleanyos();
-            }
+            
+            
+            
             
         }while(opcion != 0);
         
@@ -229,13 +240,14 @@ public class App {
 
     public static void cumpleanyos(){
 
-        System.out.println("Introduce la posicion del contacto a saber si es o no su cumpleaños, empezando por el 0");
+        ArrayList <Persona> listaContactos = miAgenda.getAgendaViva();
+        
+        int i;
 
-        miAgenda.leerContactos();
+        for(i=0; i < listaContactos.size(); i++){
 
-        int i = sc.nextInt();
-
-        miAgenda.comprobarCumple(i);
+            miAgenda.comprobarCumple(i);
+        }
 
     }
 

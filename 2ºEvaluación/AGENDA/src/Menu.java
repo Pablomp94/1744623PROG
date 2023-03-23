@@ -12,7 +12,6 @@ public class Menu {
         System.out.println("2. Modificar contacto existente");
         System.out.println("3. Leer contactos");
         System.out.println("4. Borrar contactos");
-        System.out.println("5. Comprobar cumpleaños");
         System.out.println("0. Salir");
         System.out.println(" ");
         System.out.println("...............................................");

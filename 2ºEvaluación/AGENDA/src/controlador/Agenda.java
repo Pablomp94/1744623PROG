@@ -129,17 +129,12 @@ public class Agenda {
         if (hoy.getDayOfMonth()==p.getFechaNacimiento().getDayOfMonth() &&
         hoy.getMonthValue()==p.getFechaNacimiento().getMonthValue()) {
 
-            System.out.println("Hoy es su cumpleanyos y cumple: " + (hoy.getYear() - p.getFechaNacimiento().getYear()) + " años");
+            System.out.println("Hoy es el cumpleanyos de: " + p.getNombre() + " y cumple: " + (hoy.getYear() - p.getFechaNacimiento().getYear()) + " años");
             
         }
-        else {
-             res = -1;
-        }
-
-        if(res == -1){
-            System.out.println("Hoy no es su cumpleaños");
-        }
+        
         return res;
+        
 
     }
 
