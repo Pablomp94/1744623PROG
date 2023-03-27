@@ -1,4 +1,4 @@
 Samuel;Espin;24532;fdsafsd@vzxvzfx.com;2000-08-01;
-Jose;Morales;312312312;dsapdsapdsa;2003-05-03;
 Pepe;Master;123123;dpsadpsa@dsadsa;2004-03-23;
 Pablo;Morales;644471654;kirbix94@gmail.com;2004-11-04;
+Manolo;Moreno;manolo@gmail.com;283192;2006-10-03;

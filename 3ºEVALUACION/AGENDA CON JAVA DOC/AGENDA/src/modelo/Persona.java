@@ -18,6 +18,11 @@ public class Persona {
    * Se generan los getters y setters
    */
 
+  /**
+   * 
+   * @param nombre
+   */
+
   public Persona(String nombre) {
     this.nombre = nombre;
   }
@@ -26,10 +31,15 @@ public class Persona {
     return nombre;
   }
 
+ 
   public String getApellidos() {
     return apellidos;
   }
 
+  /**
+   * 
+   * @param apellidos
+   */
   public void setApellidos(String apellidos) {
     this.apellidos = apellidos;
   }
@@ -37,7 +47,10 @@ public class Persona {
   public String getNumTelefono() {
     return numTelefono;
   }
-
+  /**
+   * 
+   * @param telefono
+   */
   public void setNumTelefono(String telefono) {
     this.numTelefono = telefono;
   }
@@ -46,6 +59,10 @@ public class Persona {
     return email;
   }
 
+  /**
+   * 
+   * @param email
+   */
   public void setEmail(String email) {
     this.email = email;
   }
@@ -54,6 +71,10 @@ public class Persona {
     return fechaNacimiento;
   }
 
+  /**
+   * 
+   * @param fechaNacimiento
+   */
   public void setFechaNacimiento(LocalDate fechaNacimiento) {
     this.fechaNacimiento = fechaNacimiento;
   }

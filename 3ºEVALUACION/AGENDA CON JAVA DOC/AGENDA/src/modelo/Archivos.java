@@ -10,8 +10,8 @@ import java.util.Scanner;
 /**
  * Clase Archivos
  * Implementa la gestion de ficheros en disco
- * @author Joaquin Rios
- * @version 2023.02.28
+ * @author Pablo Morales Puertas
+ * @version 2023.02.29
  * 
  */
 public class Archivos {
@@ -82,7 +82,6 @@ public class Archivos {
     /**
      * Metodo que borra el archivo del disco
      * @return el resultado de la operación de borrado
-     * @since 2023.02.28
      */
     public boolean borra() {
         File myObj = new File(nombreFichero);
