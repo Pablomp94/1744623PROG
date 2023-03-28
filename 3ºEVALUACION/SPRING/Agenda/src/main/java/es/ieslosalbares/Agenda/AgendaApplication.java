@@ -18,13 +18,15 @@ public class AgendaApplication {
             
             Persona pepe = new Persona();
 
-            pepe.setNombre("Pepe");
+            /*pepe.setNombre("Pepe");
             pepe.setApellidos("Moreno");
             pepe.setNumTelefono(123456);
             pepe.setEmail("sadsad@gmail.com");
             pepe.setFechaNacimiento("2001/02/02");
 
-            repositorio.save(pepe);
+            repositorio.save(pepe);*/
+
+            System.out.println(pepe);
         };
     }
 
