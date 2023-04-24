@@ -1,8 +1,5 @@
 package modelo;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
 public class Publication {
     private final Integer id;
     private String bookTitle;
@@ -51,21 +48,4 @@ public class Publication {
         ", Editorial=" + publishCo + "]";
     }
     
-
-    public static Publication fromResulSet (ResultSet rs) throws SQLException{
-
-                String bookTitle = rs.getString("book_title");
-                String publishDate = rs.getString("publish_date");
-                String publishCo = rs.getString("publish_co");
-                Integer id = rs.getInt("id");
-
-                Publication p = new Publication(
-                    id , bookTitle, publishDate,
-                    publishCo
-                );
-        
-                return p;
-    }
-
-
 }

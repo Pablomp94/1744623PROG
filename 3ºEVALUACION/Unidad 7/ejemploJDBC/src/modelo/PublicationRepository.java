@@ -8,14 +8,15 @@ import java.util.ArrayList;
 
 public class PublicationRepository {
     
-    public static Object repositoriort;
     //La colección de libros de la base de datos
-    public ArrayList<Publication> repositorio = 
+    private ArrayList<Publication> repositorio = 
         new ArrayList<Publication>();
 
+    // nos conectamos a la base de datos
+    CrearConexion miConexion = new CrearConexion();
+
     public PublicationRepository() {
-        // nos conectamos a la base de datos
-        CrearConexion miConexion = new CrearConexion();
+        
 
         try (Connection conexion = miConexion.hazConnection();
         Statement sentencia = conexion.createStatement();) {
@@ -26,22 +27,18 @@ public class PublicationRepository {
 
             while (rs.next()) {
                 //obtengo los datos del resultado
-                /*String bookTitle = rs.getString("book_title");
+                String bookTitle = rs.getString("book_title");
                 String publishDate = rs.getString("publish_date");
                 String publishCo = rs.getString("publish_co");
-                Integer id = rs.getInt("id");*/
+                Integer id = rs.getInt("id");
 
-                Publication p = Publication.fromResulSet(rs);
-
-                repositorio.add(p);
-
-                /*//Lo asigno a un objeto Publication
+                //Lo asigno a un objeto Publication
                 Publication p = new Publication(
                     id , bookTitle, publishDate,
                     publishCo
                 );
                 //Lo agregamos a la colección
-                repositorio.add(p);*/
+                repositorio.add(p);
             }
 
         } catch (SQLException e) {
@@ -62,21 +59,26 @@ public class PublicationRepository {
     }
 
 
-    public ArrayList<Publication> librotitulo =  new ArrayList<Publication>();
-
+    public ArrayList<Publication> getRepositorio() {
+        return repositorio;
+    }
     
-    public ArrayList<Publication> buscarPorTitulo(String titulo){
 
-        for(Publication pub : repositorio) {
-
-            if(pub.getBookTitle() == titulo){
-                
-                librotitulo.add(pub);
-                
-                
-            }
+    public void insertar(Publication libro) {
+        try (Connection conexion = miConexion.hazConnection();
+        Statement sentencia = conexion.createStatement();) {
+            String query = "INSERT INTO publication VALUES ('" + libro.getBookTitle() + "' , '" +
+            libro.getPublishDate()+ "' , '" +
+            libro.getPublishCo() + "')";
+            sentencia.executeUpdate(query);
+            // close connection
+            sentencia.close();
+            repositorio.add(libro);
+            
         }
-        
-        return librotitulo;
+        catch (Exception e){
+            System.out.println("Error al conectar");
+        }
+
     }
 }
