@@ -53,15 +53,15 @@ class App {
                 System.out.println(" ");
 
                 System.out.println("Titulo del libro:");
-                bookTitle = sc.nextLine();
+                bookTitle = sc.nextLine() + "/n";
                 System.out.println(" ");
 
                 System.out.println("Fecha de publicacion:");
-                publishDate = sc.nextLine();
+                publishDate = sc.nextLine() + "/n";
                 System.out.println(" ");
 
                 System.out.println("Editorial:");
-                publishCo = sc.nextLine();
+                publishCo = sc.nextLine() + "/n";
                 System.out.println(" ");
 
                 biblioteca.insertaLibro(id, bookTitle, publishDate, publishCo);
