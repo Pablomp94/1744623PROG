@@ -8,8 +8,9 @@ import java.util.ArrayList;
 
 public class PublicationRepository {
     
+    public static Object repositoriort;
     //La colección de libros de la base de datos
-    private ArrayList<Publication> repositorio = 
+    public ArrayList<Publication> repositorio = 
         new ArrayList<Publication>();
 
     public PublicationRepository() {
@@ -25,10 +26,14 @@ public class PublicationRepository {
 
             while (rs.next()) {
                 //obtengo los datos del resultado
-                String bookTitle = rs.getString("book_title");
+                /*String bookTitle = rs.getString("book_title");
                 String publishDate = rs.getString("publish_date");
                 String publishCo = rs.getString("publish_co");
-                Integer id = rs.getInt("id");
+                Integer id = rs.getInt("id");*/
+
+                Publication p = Publication.fromResulSet(rs);
+
+                repositorio.add(p);
 
                 //Lo asigno a un objeto Publication
                 Publication p = new Publication(

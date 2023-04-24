@@ -27,12 +27,12 @@ public class Publicaciones {
     public String buscarPorTitulo(String titulo){
 
         
-        
-        for(int x = 0; x < PublicationRepository.librotitulo.size(); x ++){
+       /* 
+        for(int x = 0; x < PublicationRepository.repositorio.size(); x ++){
 
-            libro.add(PublicationRepository.librotitulo.get(x));
+            libro.add(PublicationRepository.repositorio.get(x));
         }
-
+        */
         if(libro != null){
             System.out.println("Libro encontrado");
             for(int i = 0; i < libro.size(); i ++){
