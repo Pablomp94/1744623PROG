@@ -5,68 +5,79 @@ import java.util.Scanner;
 import controlador.Publicaciones;
 
 class App {
+    static Scanner sc = new Scanner(System.in);
+
+    static Publicaciones biblioteca = new Publicaciones();
     public static void main(String[] args) throws Exception {
-
+        
         System.out.println("Iniciando aplicación...");
+        
+        insertar();
+        
 
-        Publicaciones biblioteca = new Publicaciones();
-        Scanner sc = new Scanner(System.in);
-        int opcion = 4;
+        
 
-        do {
-            System.out.println(metodos.Menu());
 
-            opcion = sc.nextInt();
+        
 
-            if (opcion == 1) {
-                System.out.print("Escribe el id a buscar: ");
-                int id = Integer.parseInt(sc.nextLine());
-                System.out.println(biblioteca.buscarPorId(id));
+
+        
+        
+    }
+
+    public static void buscarporId() {
+        System.out.print("Escribe el id a buscar: ");
+        int id = Integer.parseInt(sc.nextLine());
+        System.out.println(biblioteca.buscarPorId(id));
+    }
+
+    public static void buscarPorTitulo() {
+        System.out.print("Escribe el titulo a buscar: ");
+        String titulo = sc.nextLine();
+
+        var resultado = biblioteca.buscarPorTitulo(titulo);
+
+        if (resultado.size()>0) {
+            System.out.println("Encontrados " + 
+                resultado.size() + 
+                " resultados:");
+            for (String libro : resultado) {
+                System.out.println(libro);
             }
+        }
+        else {
+            System.out.println("No se encontró ningún resultado");
+        }
+    }
 
-            if (opcion == 2) {
-                System.out.print("Escribe el titulo a buscar: ");
-                String titulo = sc.nextLine();
+    public static void insertar() {
+        System.out.print("Escribe el titulo a insertar: ");
+        String tituloL = sc.nextLine();
 
-                var resultado = biblioteca.buscarPorTitulo(titulo);
+        System.out.print("Escribe la fecha: ");
+        String fechaL = sc.nextLine();
 
-                if (resultado.size() > 0) {
-                    System.out.println("Encontrados " +
-                            resultado.size() +
-                            " resultados:");
-                    for (String libro : resultado) {
-                        System.out.println(libro);
-                    }
-                } else {
-                    System.out.println("No se encontró ningún resultado");
-                }
-            }
+        System.out.print("Escribe la editorial: ");
+        String editorialL = sc.nextLine();
 
-            if (opcion == 3) {
+        biblioteca.insertaLibro(tituloL, fechaL, editorialL);
+    }
 
-                int id;
-                String bookTitle, publishCo, publishDate;
 
-                System.out.println("AÑADIR NUEVO LIBRO:");
-                System.out.println("Id:");
-                id = sc.nextInt();
-                System.out.println(" ");
+    public static void modificar () {
+        System.out.print("Escribe el id del libro a modificar: ");
+        Integer id = sc.nextInt();
+        sc.nextLine();
 
-                System.out.println("Titulo del libro:");
-                bookTitle = sc.nextLine() + "/n";
-                System.out.println(" ");
+        System.out.print("Escribe nuevo titulo: ");
+        String titulo = sc.nextLine();
 
-                System.out.println("Fecha de publicacion:");
-                publishDate = sc.nextLine() + "/n";
-                System.out.println(" ");
+        System.out.print("Escribe la fecha a modificar: ");
+        String fecha = sc.nextLine();
 
-                System.out.println("Editorial:");
-                publishCo = sc.nextLine() + "/n";
-                System.out.println(" ");
+        System.out.print("Escribe la editorial a modificar: ");
+        String editorial = sc.nextLine();
 
-                biblioteca.insertaLibro(id, bookTitle, publishDate, publishCo);
-
-            }
-        } while (opcion != 0);
+        biblioteca.modificaLibro(id , titulo, fecha, editorial);
     }
 }

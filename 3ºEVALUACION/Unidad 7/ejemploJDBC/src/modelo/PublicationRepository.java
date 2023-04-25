@@ -15,9 +15,7 @@ public class PublicationRepository {
     // nos conectamos a la base de datos
     CrearConexion miConexion = new CrearConexion();
 
-    public PublicationRepository() {
-        
-
+    public PublicationRepository() {        
         try (Connection conexion = miConexion.hazConnection();
         Statement sentencia = conexion.createStatement();) {
             //sentencia e ejecutar
@@ -43,6 +41,7 @@ public class PublicationRepository {
 
         } catch (SQLException e) {
             System.out.println("Error al conectar");
+            e.printStackTrace();
         }
     }
 
@@ -63,22 +62,49 @@ public class PublicationRepository {
         return repositorio;
     }
     
-
     public void insertar(Publication libro) {
+        repositorio.add(libro);
+    }
+
+
+    public void insertarLibro(Publication libro) {
+
+        String query = "";
+
         try (Connection conexion = miConexion.hazConnection();
         Statement sentencia = conexion.createStatement();) {
-            String query = "INSERT INTO publication VALUES ('" + libro.getBookTitle() + "' , '" +
+            query = "INSERT INTO publication VALUES (0 , '" 
+            + libro.getBookTitle() + "' , '" + 
             libro.getPublishDate()+ "' , '" +
             libro.getPublishCo() + "')";
             sentencia.executeUpdate(query);
             // close connection
-            sentencia.close();
-            repositorio.add(libro);
-            
+            sentencia.close();            
         }
         catch (Exception e){
-            System.out.println("Error al conectar");
+            System.out.println("Error->" + query);
         }
 
     }
+
+    public void grabarRepositorio () {
+        try (Connection conexion = miConexion.hazConnection();
+        Statement sentencia = conexion.createStatement();) {
+            String borrado = "TRUNCATE TABLE publication";
+            sentencia.executeUpdate(borrado);
+            // close connection
+            sentencia.close();
+        }
+        catch (Exception e){
+            System.out.println("Error al borrar");
+        }
+        for (Publication libro : repositorio) {
+            insertarLibro(libro);
+        }
+    }
+
+    public void modificar(Integer id , Publication libro) {
+    
+    }
+
 }

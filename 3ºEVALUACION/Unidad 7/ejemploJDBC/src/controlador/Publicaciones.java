@@ -9,16 +9,6 @@ public class Publicaciones {
 
     private PublicationRepository repoLibros = new PublicationRepository();
 
-
-   /* public void insertarDatos (Integer id, String bookTitle, String publishDate, String publishCo){
-
-        Publication publicacion = new Publication(id, bookTitle, publishDate, publishCo);
-
-        repoLibros.insertar(publicacion);
-
-
-    }*/
-
     public String buscarPorId (Integer id) {
         Publication libro = repoLibros.buscarPorId(id);
 
@@ -43,10 +33,17 @@ public class Publicaciones {
         return lista;
     }
 
-    public void insertaLibro(Integer id, String titulo, String fecha, String editorial) {
-        repoLibros.insertar(
-            new Publication(id , titulo, 
-            fecha , editorial)
-        );
+    public void insertaLibro(String titulo , String fecha , String editorial) {
+        var libro = new Publication( null ,titulo, 
+        fecha , editorial);
+        repoLibros.insertar(libro);
+        //repoLibros.grabarRepositorio();
+    }
+
+
+    public void modificaLibro( Integer id , String titulo , String fecha , String editorial) {
+        var libro = new Publication( null ,titulo, 
+        fecha , editorial);
+        repoLibros.modificar(id, libro);
     }
 }

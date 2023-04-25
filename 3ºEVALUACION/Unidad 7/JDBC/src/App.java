@@ -3,42 +3,52 @@ import java.sql.*;
 import java.util.Scanner;
 
 import controlador.Publicaciones;
+import modelo.PublicationRepository;
 
 class App {
     static Scanner sc = new Scanner(System.in);
 
     static Publicaciones biblioteca = new Publicaciones();
-    public static void main(String[] args) throws Exception {
-        
-        System.out.println("Iniciando aplicación...");
-        
-        
-        //BUSCAR POR ID//
 
-        System.out.print("Escribe el id a buscar: ");
+    public static void main(String[] args) throws Exception {
+
+        System.out.println("Iniciando aplicación...");
+
+
+        insertar();
+
+
+    }
+
+    public static void buscarporId() {
+        // BUSCAR POR ID//
+        System.out.println("Escribe el id a buscar: ");
         int id = Integer.parseInt(sc.nextLine());
         System.out.println(biblioteca.buscarPorId(id));
+    }
 
-        //BUSCAR POR TITULO//
+    public static void buscarporTitulo() {
+        // BUSCAR POR TITULO//
 
-        System.out.print("Escribe el titulo a buscar: ");
+        System.out.println("Escribe el titulo a buscar: ");
         String titulo = sc.nextLine();
 
         var resultado = biblioteca.buscarPorTitulo(titulo);
 
-        if (resultado.size()>0) {
-            System.out.println("Encontrados " + 
-                resultado.size() + 
-                " resultados:");
+        if (resultado.size() > 0) {
+            System.out.println("Encontrados " +
+                    resultado.size() +
+                    " resultados:");
             for (String libro : resultado) {
                 System.out.println(libro);
             }
-        }
-        else {
+        } else {
             System.out.println("No se encontró ningún resultado");
         }
+    }
 
-        //AÑADIR NUEVO LIBRO//
+    public static void insertar() {
+        // AÑADIR NUEVO LIBRO//
 
         System.out.print("Escribe el titulo a insertar: ");
         String tituloL = sc.nextLine();
@@ -51,14 +61,14 @@ class App {
 
         biblioteca.insertaLibro(tituloL, fechaL, editorialL);
 
-
-        
+        //Guardar cambios// 
         
     }
 
-    //MODIFICA LOS DATOS DE UN LIBRO//
+    public static void modificar(){
+    // MODIFICA LOS DATOS DE UN LIBRO//
 
-    public static void modifica () {
+    
         System.out.print("Escribe el id del libro a modificar: ");
         Integer id = sc.nextInt();
         sc.nextLine();
@@ -72,6 +82,7 @@ class App {
         System.out.print("Escribe la editorial a modificar: ");
         String editorial = sc.nextLine();
 
-        biblioteca.modificaLibro(id , titulo, fecha, editorial);
+        biblioteca.modificaLibro(id, titulo, fecha, editorial);
+    
     }
 }

@@ -63,9 +63,13 @@ public class PublicationRepository {
     public ArrayList<Publication> getRepositorio() {
         return repositorio;
     }
+
+    public void insertar(Publication libro){
+        repositorio.add(libro);
+    }
     
 
-    public void insertar(Publication libro) {
+    public void insertarLibro(Publication libro) {
 
         String query = "";
 
@@ -78,7 +82,7 @@ public class PublicationRepository {
             sentencia.executeUpdate(query);
             // close connection
             sentencia.close();
-            repositorio.add(libro);
+            
             
         }
         catch (Exception e){
@@ -86,6 +90,22 @@ public class PublicationRepository {
         }
 
     }
+
+
+    public void grabarRepositorio() {
+        //Antes de añadir al repositorio los libros eliminar los datos de la base de datos//
+        try (Connection conexion = miConexion.hazConnection();
+        Statement sentencia = conexion.createStatement();) {
+            String borrado = "TRUNCATE TABLE publication";
+        } catch (Exception e){
+            System.out.println("Error al borrar");
+        }
+        for(Publication libro : repositorio){
+            insertarLibro(libro);
+        }
+    }
+
+
 
     public void modificar(Integer id , Publication libro) {
     

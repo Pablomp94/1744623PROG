@@ -10,9 +10,9 @@ public class CrearConexion {
     private String driver = "jdbc:mysql://";
     private String host="localhost";
     private String port="3306";
-    private String database="apressbooks";
-    private String user = "root";
-    private String password = "pablomaster9400";
+    private String database="apressBooks";
+    private String user = "usuario3PAW";
+    private String password = "P@ssw0rd";
 
     /**
      * 
