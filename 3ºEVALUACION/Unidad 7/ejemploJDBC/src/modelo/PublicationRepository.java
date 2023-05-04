@@ -56,6 +56,18 @@ public class PublicationRepository {
     }
 
 
+    /*public Publication conseguir_titulo(Integer id){
+
+        Publication p = null;
+        for(Publication pub : repositorio) {
+            if (pub.getId() == id) {
+                String titulo = pub.getBookTitle();
+                break;
+            }
+
+    }*/
+
+
     public Publication buscarPorId(Integer id) {
         Publication p = null;
         for (Publication pub : repositorio) {
@@ -116,6 +128,8 @@ public class PublicationRepository {
 
     public void modificar(Integer id , Publication libro) {
     
+        //Bucle para que busque por id y ponerle los datos, setters//
+       
     }
 
 }
