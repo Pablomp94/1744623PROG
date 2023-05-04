@@ -3,6 +3,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
 import controlador.Publicaciones;
 import modelo.Publication;
 import modelo.PublicationRepository;
@@ -14,12 +15,7 @@ class App {
 
     public static void main(String[] args) throws Exception {
 
-        System.out.println("Iniciando aplicación...");
-
-        insertar();
-
-        buscarporId();
-
+        modificar();
     }
 
     public static void buscarporId() {
@@ -61,13 +57,13 @@ class App {
 
     public static void modificar() {
 
-        ArrayList<Publication> repositorio = new ArrayList<Publication>();
 
         System.out.print("Escribe el id del libro a modificar: ");
         Integer id = sc.nextInt();
 
         String titulo = "";
         String fecha = "";
+        String editorial = "";
         
 
         int opcion;
@@ -82,7 +78,7 @@ class App {
             System.out.print("Escribe nuevo titulo: ");
             titulo = sc.nextLine();
         } else {
-            System.out.println("No se modifico el titulo");
+            System.out.println("No se ha modificado el titulo");
         }
 
         opcion = 3;
@@ -97,11 +93,22 @@ class App {
             System.out.print("Escribe la fecha a modificar: ");
             fecha = sc.nextLine();
         } else {
-            System.out.println("No se modidico la fecha");
+            System.out.println("No se ha modificado la fecha");
         }
 
-        System.out.print("Escribe la editorial a modificar: ");
-        String editorial = sc.nextLine();
+
+        System.out.println("¿Quieres modificar la editorial?");
+        System.out.println("1. Si");
+        System.out.println("2. No");
+
+        opcion = sc.nextInt();
+        
+        if(opcion ==1){
+            System.out.print("Escribe la editorial a modificar: ");
+            editorial = sc.nextLine();
+        }else{
+            System.out.println("No se ha modificado la editorial");
+        }
 
         biblioteca.modificaLibro(id, titulo, fecha, editorial);
     }

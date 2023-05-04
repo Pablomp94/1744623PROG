@@ -43,8 +43,10 @@ public class Publicaciones {
 
 
     public void modificaLibro( Integer id , String titulo , String fecha , String editorial) {
-        var libro = new Publication( id ,titulo, 
+        /*var libro = new Publication( id ,titulo, 
+        fecha , editorial);*/
+        //repoLibros.modificar(id, libro);
+        repoLibros.modificar( id ,titulo, 
         fecha , editorial);
-        repoLibros.modificar(id, libro);
     }
 }

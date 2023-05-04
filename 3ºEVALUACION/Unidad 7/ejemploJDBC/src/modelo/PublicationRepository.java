@@ -56,17 +56,6 @@ public class PublicationRepository {
     }
 
 
-    /*public Publication conseguir_titulo(Integer id){
-
-        Publication p = null;
-        for(Publication pub : repositorio) {
-            if (pub.getId() == id) {
-                String titulo = pub.getBookTitle();
-                break;
-            }
-
-    }*/
-
 
     public Publication buscarPorId(Integer id) {
         Publication p = null;
@@ -126,9 +115,28 @@ public class PublicationRepository {
         }
     }
 
-    public void modificar(Integer id , Publication libro) {
+    public void modificar(Integer id , String titulo , String fecha , String editorial) {
     
         //Bucle para que busque por id y ponerle los datos, setters//
+
+        
+        for (Publication pub : repositorio) {
+            if (pub.getId() == id) {
+
+                if(!titulo.isBlank()){
+                    pub.setBookTitle(titulo);
+                }
+                
+                if(!fecha.isBlank()){
+                    pub.setPublishDate(editorial);
+                }
+                
+                if(!editorial.isBlank()){
+                    pub.setPublishCo(editorial);
+                }
+                break;
+            }
+        }
        
     }
 
