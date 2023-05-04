@@ -34,15 +34,16 @@ public class Publicaciones {
     }
 
     public void insertaLibro(String titulo , String fecha , String editorial) {
-        var libro = new Publication( null ,titulo, 
+        int id = repoLibros.getProximoId();
+        var libro = new Publication( id ,titulo, 
         fecha , editorial);
         repoLibros.insertar(libro);
-        //repoLibros.grabarRepositorio();
+        repoLibros.grabarRepositorio();
     }
 
 
     public void modificaLibro( Integer id , String titulo , String fecha , String editorial) {
-        var libro = new Publication( null ,titulo, 
+        var libro = new Publication( id ,titulo, 
         fecha , editorial);
         repoLibros.modificar(id, libro);
     }

@@ -24,13 +24,13 @@ public class PublicationRepository {
             String query = "select * from publication";
             //ejecuto la sentencia y guardo el resultado en rs
             ResultSet rs = sentencia.executeQuery(query);
-
+            Integer id = 0;
             while (rs.next()) {
                 //obtengo los datos del resultado
                 String bookTitle = rs.getString("book_title");
                 String publishDate = rs.getString("publish_date");
                 String publishCo = rs.getString("publish_co");
-                Integer id = rs.getInt("id");
+                id = rs.getInt("id");
 
                 //Lo asigno a un objeto Publication
                 Publication p = new Publication(
@@ -45,6 +45,10 @@ public class PublicationRepository {
             System.out.println("Error al conectar");
             e.printStackTrace();
         }
+    }
+
+    public  void proximoId(){
+
     }
 
 
@@ -62,6 +66,7 @@ public class PublicationRepository {
 
     public ArrayList<Publication> getRepositorio() {
         return repositorio;
+        proximoId++;
     }
 
     public void insertar(Publication libro){
@@ -107,8 +112,15 @@ public class PublicationRepository {
 
 
 
-    public void modificar(Integer id , Publication libro) {
+    public void modificarLibro(Integer id , Publication libro) {
     
+        for(Publication elLibro : repositorio){
+            
+            if(elLibro.getId() == id){
+                elLibro.setBookTitle(libro.getBookTitle());
+                System.out.println(elLibro.toString());
+            }
+        }
     }
 
 }

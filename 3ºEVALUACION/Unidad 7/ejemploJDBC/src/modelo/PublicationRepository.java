@@ -12,6 +12,9 @@ public class PublicationRepository {
     private ArrayList<Publication> repositorio = 
         new ArrayList<Publication>();
 
+    //Id del proximo elemento a insertar
+    private int proximoId;
+
     // nos conectamos a la base de datos
     CrearConexion miConexion = new CrearConexion();
 
@@ -22,13 +25,13 @@ public class PublicationRepository {
             String query = "select * from publication";
             //ejecuto la sentencia y guardo el resultado en rs
             ResultSet rs = sentencia.executeQuery(query);
-
+            Integer id=0;
             while (rs.next()) {
                 //obtengo los datos del resultado
                 String bookTitle = rs.getString("book_title");
                 String publishDate = rs.getString("publish_date");
                 String publishCo = rs.getString("publish_co");
-                Integer id = rs.getInt("id");
+                id = rs.getInt("id");
 
                 //Lo asigno a un objeto Publication
                 Publication p = new Publication(
@@ -39,10 +42,17 @@ public class PublicationRepository {
                 repositorio.add(p);
             }
 
+            proximoId = id + 1;
+
         } catch (SQLException e) {
             System.out.println("Error al conectar");
             e.printStackTrace();
         }
+    }
+
+
+    public int getProximoId() {
+        return proximoId;
     }
 
 
@@ -64,6 +74,7 @@ public class PublicationRepository {
     
     public void insertar(Publication libro) {
         repositorio.add(libro);
+        proximoId++;
     }
 
 
