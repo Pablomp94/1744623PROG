@@ -128,7 +128,7 @@ public class PublicationRepository {
                 }
                 
                 if(!fecha.isBlank()){
-                    pub.setPublishDate(editorial);
+                    pub.setPublishDate(fecha);
                 }
                 
                 if(!editorial.isBlank()){

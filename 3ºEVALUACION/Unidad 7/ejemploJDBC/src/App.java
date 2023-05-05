@@ -60,6 +60,7 @@ class App {
 
         System.out.print("Escribe el id del libro a modificar: ");
         Integer id = sc.nextInt();
+        sc.nextLine();
 
         String titulo = "";
         String fecha = "";
@@ -73,6 +74,7 @@ class App {
         System.out.println("2. No");
 
         opcion = sc.nextInt();
+        sc.nextLine();
 
         if (opcion == 1) {
             System.out.print("Escribe nuevo titulo: ");
@@ -88,6 +90,7 @@ class App {
         System.out.println("2. No");
 
         opcion = sc.nextInt();
+        sc.nextLine();
 
         if (opcion == 1) {
             System.out.print("Escribe la fecha a modificar: ");
@@ -102,7 +105,8 @@ class App {
         System.out.println("2. No");
 
         opcion = sc.nextInt();
-        
+        sc.nextLine();
+
         if(opcion ==1){
             System.out.print("Escribe la editorial a modificar: ");
             editorial = sc.nextLine();
