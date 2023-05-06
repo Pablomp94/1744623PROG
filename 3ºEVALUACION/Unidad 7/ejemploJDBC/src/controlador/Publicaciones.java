@@ -9,6 +9,7 @@ public class Publicaciones {
 
     private PublicationRepository repoLibros = new PublicationRepository();
 
+
     public String buscarPorId (Integer id) {
         Publication libro = repoLibros.buscarPorId(id);
 
