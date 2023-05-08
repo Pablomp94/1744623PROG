@@ -6,7 +6,6 @@ import java.util.Scanner;
 import modelo.Publication;
 import modelo.PublicationRepository;
 
-
 class App {
 
   static Scanner sc = new Scanner(System.in);
@@ -17,37 +16,43 @@ class App {
   static Publicaciones biblioteca = new Publicaciones();
 
   public static void main(String[] args) throws Exception {
-
-  
-    Menu.verMenu();
+    buscarporId();
   }
 
   /**
    * Este metodo de Java solicita al usuario que ingrese una ID y luego la busca en un sistema de bibliotecas.
    */
   public static void buscarporId() {
-    System.out.print("Escribe el id a buscar: ");
-    int id = Integer.parseInt(sc.nextLine());
-    System.out.println(biblioteca.buscarPorId(id));
+    try {
+      System.out.print("Escribe el id a buscar: ");
+      int id = Integer.parseInt(sc.nextLine());
+      System.out.println(biblioteca.buscarPorId(id));
+    } catch (Exception e) {
+      System.out.println("Los datos introducidos son erroneos");
+    }
   }
 
   /**
    * Esta función de Java solicita al usuario que ingrese el título de un libro para buscar en una biblioteca,
-   * luego muestra los resultados de la búsqueda, si se encuentra alguno.
+   * luego muestra los resultados de la busqueda, si se encuentra alguno.
    */
   public static void buscarPorTitulo() {
-    System.out.print("Escribe el titulo a buscar: ");
-    String titulo = sc.nextLine();
+    try {
+      System.out.print("Escribe el titulo a buscar: ");
+      String titulo = sc.nextLine();
 
-    var resultado = biblioteca.buscarPorTitulo(titulo);
+      var resultado = biblioteca.buscarPorTitulo(titulo);
 
-    if (resultado.size() > 0) {
-      System.out.println("Encontrados " + resultado.size() + " resultados:");
-      for (String libro : resultado) {
-        System.out.println(libro);
+      if (resultado.size() > 0) {
+        System.out.println("Encontrados " + resultado.size() + " resultados:");
+        for (String libro : resultado) {
+          System.out.println(libro);
+        }
+      } else {
+        System.out.println("No se encontro ningun resultado");
       }
-    } else {
-      System.out.println("No se encontró ningún resultado");
+    } catch (Exception e) {
+      System.out.println("Los datos introducidos son erroneos");
     }
   }
 
@@ -56,16 +61,20 @@ class App {
    * el libro en una biblioteca.
    */
   public static void insertar() {
-    System.out.print("Escribe el titulo a insertar: ");
-    String tituloL = sc.nextLine();
+    try {
+      System.out.print("Escribe el titulo a insertar: ");
+      String tituloL = sc.nextLine();
 
-    System.out.print("Escribe la fecha: ");
-    String fechaL = sc.nextLine();
+      System.out.print("Escribe la fecha: ");
+      String fechaL = sc.nextLine();
 
-    System.out.print("Escribe la editorial: ");
-    String editorialL = sc.nextLine();
+      System.out.print("Escribe la editorial: ");
+      String editorialL = sc.nextLine();
 
-    biblioteca.insertaLibro(tituloL, fechaL, editorialL);
+      biblioteca.insertaLibro(tituloL, fechaL, editorialL);
+    } catch (Exception e) {
+      System.out.println("Los datos introducidos son erroneos");
+    }
   }
 
   /**
