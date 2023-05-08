@@ -15,7 +15,17 @@ class App {
       a lo largo de la clase `App`.*/
   static Publicaciones biblioteca = new Publicaciones();
 
-  public static void main(String[] args) throws Exception {}
+  public static void main(String[] args) throws Exception {
+
+    biblioteca.verRepositorio();
+
+    modificar();
+
+
+    biblioteca.guardar();
+
+    biblioteca.verRepositorio();
+  }
 
   /**
    * Este metodo de Java solicita al usuario que ingrese una ID y luego la busca en un sistema de bibliotecas.

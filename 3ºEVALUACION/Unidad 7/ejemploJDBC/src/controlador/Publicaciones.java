@@ -50,4 +50,12 @@ public class Publicaciones {
         repoLibros.modificar( id ,titulo, 
         fecha , editorial);
     }
+
+    public void verRepositorio(){
+        System.out.println(repoLibros.getRepositorio());
+    }
+
+    public void guardar(){
+        repoLibros.grabarRepositorio();
+    }
 }
