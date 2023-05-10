@@ -145,6 +145,10 @@ class App {
     biblioteca.modificaLibro(id, titulo, fecha, editorial);
   }
 
+  /**
+   * Esta función solicita al usuario que ingrese la ID de un libro que se eliminará y solicita confirmación
+    * antes de llamar al método "borradoLibro" para eliminar el libro de la biblioteca.
+   */
   public static void borrarLibro() {
     System.out.println("Introduce la id del libro a borrar");
 

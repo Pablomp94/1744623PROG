@@ -3,5 +3,8 @@
     "java.project.outputPath": "bin",
     "java.project.referencedLibraries": [
         "lib/**/*.jar"
-    ]
+    ],
+    "commentTranslate.source": "Google",
+    "commentTranslate.hover.enabled": true,
+    "commentTranslate.targetLanguage": "es"
 }

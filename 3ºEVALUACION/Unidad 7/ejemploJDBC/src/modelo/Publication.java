@@ -7,10 +7,15 @@ public class Publication {
     private String publishCo;
 
     
+    //Este es un método constructor que crea una nueva instancia de la clase Publicación con un
+    //identificador especificado. Inicializa el valor de la variable id con el valor pasado como argumento.
     public Publication(Integer id) {
         this.id = id;
     }    
 
+   //Este es un método constructor que crea una nueva instancia de la clase Publicación con
+   //parámetros especificados: id, título del libro, fecha de publicación y compañía de publicación. El constructor inicializa los
+   //valores de las variables de instancia con los valores pasados ​​como argumentos.
     public Publication(Integer id, String bookTitle, String publishDate, String publishCo) {
         this.id = id;
         this.bookTitle = bookTitle;
