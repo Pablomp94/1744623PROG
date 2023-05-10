@@ -140,4 +140,15 @@ public class PublicationRepository {
        
     }
 
+    public void borrar(Integer id){
+
+        for(Publication pub : repositorio){
+
+            if(pub.getId() == id){
+
+                
+            }
+        }
+    }
+
 }

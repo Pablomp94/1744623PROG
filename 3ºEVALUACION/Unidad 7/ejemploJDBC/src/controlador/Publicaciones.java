@@ -58,4 +58,9 @@ public class Publicaciones {
     public void guardar(){
         repoLibros.grabarRepositorio();
     }
+
+
+    public void borradoLibro(Integer id){
+        repoLibros.borrar(id);
+    }
 }
