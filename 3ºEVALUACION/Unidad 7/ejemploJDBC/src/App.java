@@ -19,15 +19,12 @@ class App {
     verRepositorio();
   }
 
-
   /**
    * Este metodo muestra el repositorio de libros.
    */
-  public static void verRepositorio(){
+  public static void verRepositorio() {
     biblioteca.verRepositorio();
   }
-
-
 
   /**
    * Este metodo de Java solicita al usuario que ingrese una ID y luego la busca en un sistema de bibliotecas.
@@ -146,24 +143,24 @@ class App {
     }
 
     biblioteca.modificaLibro(id, titulo, fecha, editorial);
+  }
 
+  public static void borrarLibro() {
+    System.out.println("Introduce la id del libro a borrar");
 
+    int id = sc.nextInt();
 
-    public static void borrarLibro(){
+    System.out.println("Estas seguro que lo quieres eliminar?");
 
-      System.out.println("Introduce la id del libro a borrar");
+    System.out.println("1. Si");
+    System.out.println("2. No");
 
-      Int id = sc.nextInt();
+    int opcion = sc.nextInt();
 
-      System.out.println("Estas seguro que lo quieres eliminar?");
-
-      System.out.println("1. Si");
-      System.out.println("2. No");
-  
-      int opcion = sc.nextInt();
-
-
-
+    if (opcion == 1) {
+      biblioteca.borradoLibro(id);
+    } else {
+      System.out.println("El libro no se ha borrado");
     }
   }
 }
