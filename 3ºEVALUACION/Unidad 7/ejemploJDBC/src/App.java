@@ -10,13 +10,44 @@ class App {
 
   static Scanner sc = new Scanner(System.in);
 
-  /*Es nueva instancia de la clase `Publicaciones` y asignándola a la variable estática
-      `biblioteca`. Esta variable se utiliza para acceder a los métodos de la clase `Publicaciones`
-      a lo largo de la clase `App`.*/
+  /*
+   * Es nueva instancia de la clase `Publicaciones` y asignándola a la variable
+   * estática
+   * `biblioteca`. Esta variable se utiliza para acceder a los métodos de la clase
+   * `Publicaciones`
+   * a lo largo de la clase `App`.
+   */
   static Publicaciones biblioteca = new Publicaciones();
 
   public static void main(String[] args) throws Exception {
-    verRepositorio();
+
+    int opcion;
+
+    do {
+      menu();
+
+      opcion = sc.nextInt();
+
+      if (opcion == 1) {
+        verRepositorio();
+      }
+      if (opcion == 2) {
+        buscarporId();
+      }
+      if (opcion == 3) {
+        buscarPorTitulo();
+      }
+      if (opcion == 4) {
+        insertar();
+      }
+      if (opcion == 5) {
+        modificar();
+      }
+      if (opcion == 6) {
+        borrarLibro();
+      }
+    } while (opcion != 0);
+
   }
 
   /**
@@ -27,7 +58,8 @@ class App {
   }
 
   /**
-   * Este metodo de Java solicita al usuario que ingrese una ID y luego la busca en un sistema de bibliotecas.
+   * Este metodo de Java solicita al usuario que ingrese una ID y luego la busca
+   * en un sistema de bibliotecas.
    */
   public static void buscarporId() {
     try {
@@ -40,7 +72,8 @@ class App {
   }
 
   /**
-   * Esta función de Java solicita al usuario que ingrese el título de un libro para buscar en una biblioteca,
+   * Esta función de Java solicita al usuario que ingrese el título de un libro
+   * para buscar en una biblioteca,
    * luego muestra los resultados de la busqueda, si se encuentra alguno.
    */
   public static void buscarPorTitulo() {
@@ -64,7 +97,8 @@ class App {
   }
 
   /**
-   * Este metodo solicita al usuario que ingrese el título del libro, la fecha y el editor, y luego inserta
+   * Este metodo solicita al usuario que ingrese el título del libro, la fecha y
+   * el editor, y luego inserta
    * el libro en una biblioteca.
    */
   public static void insertar() {
@@ -85,7 +119,8 @@ class App {
   }
 
   /**
-   * Esta función modifica el título, la fecha y la editorial de un libro según la entrada del usuario.
+   * Esta función modifica el título, la fecha y la editorial de un libro según la
+   * entrada del usuario.
    */
   public static void modificar() {
     System.out.print("Escribe el id del libro a modificar: ");
@@ -146,8 +181,10 @@ class App {
   }
 
   /**
-   * Esta función solicita al usuario que ingrese la ID de un libro que se eliminará y solicita confirmación
-    * antes de llamar al método "borradoLibro" para eliminar el libro de la biblioteca.
+   * Esta función solicita al usuario que ingrese la ID de un libro que se
+   * eliminará y solicita confirmación
+   * antes de llamar al método "borradoLibro" para eliminar el libro de la
+   * biblioteca.
    */
   public static void borrarLibro() {
     System.out.println("Introduce la id del libro a borrar");
@@ -166,5 +203,16 @@ class App {
     } else {
       System.out.println("El libro no se ha borrado");
     }
+  }
+
+  public static void menu() {
+
+    System.out.println("1. Ver todos los libros");
+    System.out.println("2. Buscar libro por Id");
+    System.out.println("3. Buscar libro por titulo");
+    System.out.println("4. Insertar nuevo libro");
+    System.out.println("5. Modificar libro");
+    System.out.println("6. Borrar libro");
+    System.out.println("0. Salir");
   }
 }
