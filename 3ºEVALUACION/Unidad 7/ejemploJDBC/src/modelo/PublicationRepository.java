@@ -7,38 +7,36 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 public class PublicationRepository {
-    
-    //La colección de libros de la base de datos
-    private ArrayList<Publication> repositorio = 
-        new ArrayList<Publication>();
 
-    //Id del proximo elemento a insertar
+    // La colección de libros de la base de datos
+    private ArrayList<Publication> repositorio = new ArrayList<Publication>();
+
+    // Id del proximo elemento a insertar
     private int proximoId;
 
     // nos conectamos a la base de datos
     CrearConexion miConexion = new CrearConexion();
 
-    public PublicationRepository() {        
+    public PublicationRepository() {
         try (Connection conexion = miConexion.hazConnection();
-        Statement sentencia = conexion.createStatement();) {
-            //sentencia e ejecutar
+                Statement sentencia = conexion.createStatement();) {
+            // sentencia e ejecutar
             String query = "select * from publication";
-            //ejecuto la sentencia y guardo el resultado en rs
+            // ejecuto la sentencia y guardo el resultado en rs
             ResultSet rs = sentencia.executeQuery(query);
-            Integer id=0;
+            Integer id = 0;
             while (rs.next()) {
-                //obtengo los datos del resultado
+                // obtengo los datos del resultado
                 String bookTitle = rs.getString("book_title");
                 String publishDate = rs.getString("publish_date");
                 String publishCo = rs.getString("publish_co");
                 id = rs.getInt("id");
 
-                //Lo asigno a un objeto Publication
+                // Lo asigno a un objeto Publication
                 Publication p = new Publication(
-                    id , bookTitle, publishDate,
-                    publishCo
-                );
-                //Lo agregamos a la colección
+                        id, bookTitle, publishDate,
+                        publishCo);
+                // Lo agregamos a la colección
                 repositorio.add(p);
             }
 
@@ -50,12 +48,9 @@ public class PublicationRepository {
         }
     }
 
-
     public int getProximoId() {
         return proximoId;
     }
-
-
 
     public Publication buscarPorId(Integer id) {
         Publication p = null;
@@ -68,46 +63,42 @@ public class PublicationRepository {
         return p;
     }
 
-
     public ArrayList<Publication> getRepositorio() {
         return repositorio;
     }
-    
+
     public void insertar(Publication libro) {
         repositorio.add(libro);
         proximoId++;
     }
-
 
     public void insertarLibro(Publication libro) {
 
         String query = "";
 
         try (Connection conexion = miConexion.hazConnection();
-        Statement sentencia = conexion.createStatement();) {
-            query = "INSERT INTO publication VALUES (0 , '" 
-            + libro.getBookTitle() + "' , '" + 
-            libro.getPublishDate()+ "' , '" +
-            libro.getPublishCo() + "')";
+                Statement sentencia = conexion.createStatement();) {
+            query = "INSERT INTO publication VALUES (0 , '"
+                    + libro.getBookTitle() + "' , '" +
+                    libro.getPublishDate() + "' , '" +
+                    libro.getPublishCo() + "')";
             sentencia.executeUpdate(query);
             // close connection
-            sentencia.close();            
-        }
-        catch (Exception e){
+            sentencia.close();
+        } catch (Exception e) {
             System.out.println("Error->" + query);
         }
 
     }
 
-    public void grabarRepositorio () {
+    public void grabarRepositorio() {
         try (Connection conexion = miConexion.hazConnection();
-        Statement sentencia = conexion.createStatement();) {
+                Statement sentencia = conexion.createStatement();) {
             String borrado = "TRUNCATE TABLE publication";
             sentencia.executeUpdate(borrado);
             // close connection
             sentencia.close();
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Error al borrar");
         }
         for (Publication libro : repositorio) {
@@ -115,38 +106,37 @@ public class PublicationRepository {
         }
     }
 
-    public void modificar(Integer id , String titulo , String fecha , String editorial) {
-    
-        //Bucle para que busque por id y ponerle los datos, setters//
+    public void modificar(Integer id, String titulo, String fecha, String editorial) {
 
-        
+        // Bucle para que busque por id y ponerle los datos, setters//
+
         for (Publication pub : repositorio) {
             if (pub.getId() == id) {
 
-                if(!titulo.isBlank()){
+                if (!titulo.isBlank()) {
                     pub.setBookTitle(titulo);
                 }
-                
-                if(!fecha.isBlank()){
+
+                if (!fecha.isBlank()) {
                     pub.setPublishDate(fecha);
                 }
-                
-                if(!editorial.isBlank()){
+
+                if (!editorial.isBlank()) {
                     pub.setPublishCo(editorial);
                 }
                 break;
             }
         }
-       
+
     }
 
-    public void borrar(Integer id){
+    public void borrar(Integer id) {
 
-        for(Publication pub : repositorio){
+        for (int i = 0; i < repositorio.size(); i++) {
 
-            if(pub.getId() == id){
+            if (repositorio.get(i).getId() == id) {
+                repositorio.remove(repositorio.get(i));
 
-                
             }
         }
     }
