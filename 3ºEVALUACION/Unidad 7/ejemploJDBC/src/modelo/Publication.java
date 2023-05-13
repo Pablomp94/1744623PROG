@@ -7,15 +7,23 @@ public class Publication {
     private String publishCo;
 
     
-    //Este es un método constructor que crea una nueva instancia de la clase Publicación con un
-    //identificador especificado. Inicializa el valor de la variable id con el valor pasado como argumento.
+    /**
+     * Este es un método constructor que crea una nueva instancia de la clase Publicación con un
+     * identificador especificado. Inicializa el valor de la variable id con el valor pasado como argumento.
+     * @param id
+     */
     public Publication(Integer id) {
         this.id = id;
     }    
 
-   //Este es un método constructor que crea una nueva instancia de la clase Publicación con
-   //parámetros especificados: id, título del libro, fecha de publicación y compañía de publicación. El constructor inicializa los
-   //valores de las variables de instancia con los valores pasados ​​como argumentos.
+   /**
+    * Este es un método constructor que crea una nueva instancia de la clase Publicación con
+   //parámetros especificados
+    * @param id
+    * @param bookTitle
+    * @param publishDate
+    * @param publishCo
+    */
     public Publication(Integer id, String bookTitle, String publishDate, String publishCo) {
         this.id = id;
         this.bookTitle = bookTitle;
@@ -23,6 +31,8 @@ public class Publication {
         this.publishCo = publishCo;
     }
 
+    
+    
     public Integer getId() {
         return id;
     }
@@ -45,6 +55,13 @@ public class Publication {
         this.publishCo = publishCo;
     }
 
+    /**
+     *Esta función devuelve una representación de cadena de un objeto de publicación con su id, título del libro,
+     *fecha de publicación y editorial.
+     *
+     *@return Una representación de cadena de un objeto Publicación, incluido su id, bookTitle,
+     *atributos de fecha de publicación y publicación de empresa.
+     */
     @Override
     public String toString() {
         return "Publication [id=" + id + 
