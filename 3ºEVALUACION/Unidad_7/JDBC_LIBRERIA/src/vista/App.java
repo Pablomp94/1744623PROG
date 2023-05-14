@@ -1,10 +1,8 @@
+package vista;
 import controlador.Publicaciones;
-import java.io.*;
-import java.sql.*;
-import java.util.ArrayList;
+
+import java.time.LocalDate;
 import java.util.Scanner;
-import modelo.Publication;
-import modelo.PublicationRepository;
 
 class App {
 
@@ -26,7 +24,8 @@ class App {
     do {
       menu();
 
-      opcion = sc.nextInt();
+      opcion = inNum("Introduce una opción: ");
+      System.out.println();
 
       if (opcion == 1) {
         verRepositorio();
@@ -46,6 +45,7 @@ class App {
       if (opcion == 6) {
         borrarLibro();
       }
+      System.out.println();
     } while (opcion != 0);
 
   }
@@ -75,8 +75,11 @@ class App {
    * Esta función de Java solicita al usuario que ingrese el título de un libro
    * para buscar en una biblioteca,
    * luego muestra los resultados de la busqueda, si se encuentra alguno.
+   * 
+   * @return si encontro o no el libro.
    */
-  public static void buscarPorTitulo() {
+  public static boolean buscarPorTitulo() {
+    boolean encontrado = false;
     try {
       System.out.print("Escribe el titulo a buscar: ");
       String titulo = sc.nextLine();
@@ -88,11 +91,14 @@ class App {
         for (String libro : resultado) {
           System.out.println(libro);
         }
+        return encontrado = true;
       } else {
         System.out.println("No se encontro ningun resultado");
+        return encontrado;
       }
     } catch (Exception e) {
       System.out.println("Los datos introducidos son erroneos");
+      return encontrado;
     }
   }
 
@@ -106,8 +112,12 @@ class App {
       System.out.print("Escribe el titulo a insertar: ");
       String tituloL = sc.nextLine();
 
-      System.out.print("Escribe la fecha: ");
-      String fechaL = sc.nextLine();
+      String fechaL = "";
+      
+      do {
+        System.out.print("Escribe la fecha (año-mes-fecha): ");
+        fechaL = sc.nextLine();
+      } while (!validarFecha(fechaL));
 
       System.out.print("Escribe la editorial: ");
       String editorialL = sc.nextLine();
@@ -118,66 +128,68 @@ class App {
     }
   }
 
+  /* 
+   * @return si la fecha es valida o no.
+   */
+  public static boolean validarFecha(String fecha) {
+    try {
+      LocalDate.parse(fecha);
+      return true;
+    } catch (Exception e) {
+      System.out.println("Fecha no valida, ejemplo: 2001-01-01");
+      return false;
+
+    }
+  }
+
   /**
    * Esta función modifica el título, la fecha y la editorial de un libro según la
    * entrada del usuario.
+   * 
    */
   public static void modificar() {
-    System.out.print("Escribe el id del libro a modificar: ");
-    Integer id = sc.nextInt();
-    sc.nextLine();
+    if (buscarPorTitulo()) {
+      System.out.print("Escribe el id del libro a modificar: ");
+      Integer id = sc.nextInt();
+      sc.nextLine();
 
-    String titulo = "";
-    String fecha = "";
-    String editorial = "";
+      String titulo = "";
+      String fecha = "";
+      String editorial = "";
 
-    int opcion;
+      titulo = modInput("el título");
+      System.out.println();
+      fecha = modInput("la fecha");
+      System.out.println();
+      editorial = modInput("la editorial");
 
-    System.out.println("¿Quieres modificar el titulo?");
-    System.out.println("1. Si");
-    System.out.println("2. No");
-
-    opcion = sc.nextInt();
-    sc.nextLine();
-
-    if (opcion == 1) {
-      System.out.print("Escribe nuevo titulo: ");
-      titulo = sc.nextLine();
-    } else {
-      System.out.println("No se ha modificado el titulo");
+      biblioteca.modificaLibro(id, titulo, fecha, editorial);
     }
+  }
 
-    opcion = 3;
+  /**
+   *He puesto todos los if de modificar y te los he resumido en un
+   * metodo.
+   * 
+   * @param aModificar dato a modificar
+   * @return valor del dato a modificar
+   */
+  public static String modInput(String aModificar) {
+    String input;
+    String opcion;
 
-    System.out.println("¿Quieres modificar la fecha?");
-    System.out.println("1. Si");
-    System.out.println("2. No");
+    System.out.println("¿Quieres modificar " + aModificar + "?");
+    System.out.print("Introduzca \"Si\" para modificar: ");
+    opcion = sc.nextLine();
 
-    opcion = sc.nextInt();
-    sc.nextLine();
-
-    if (opcion == 1) {
-      System.out.print("Escribe la fecha a modificar: ");
-      fecha = sc.nextLine();
+    if (opcion.equalsIgnoreCase("si") || opcion.equalsIgnoreCase("s")) {
+      System.out.print("Escribe " + aModificar + " a modificar: ");
+      input = sc.nextLine();
+      return input;
     } else {
-      System.out.println("No se ha modificado la fecha");
+      System.out.println("No se ha modificado " + aModificar + ".");
+      return "";
     }
-
-    System.out.println("¿Quieres modificar la editorial?");
-    System.out.println("1. Si");
-    System.out.println("2. No");
-
-    opcion = sc.nextInt();
-    sc.nextLine();
-
-    if (opcion == 1) {
-      System.out.print("Escribe la editorial a modificar: ");
-      editorial = sc.nextLine();
-    } else {
-      System.out.println("No se ha modificado la editorial");
-    }
-
-    biblioteca.modificaLibro(id, titulo, fecha, editorial);
   }
 
   /**
@@ -187,26 +199,28 @@ class App {
    * biblioteca.
    */
   public static void borrarLibro() {
-    System.out.println("Introduce la id del libro a borrar");
 
-    int id = sc.nextInt();
+    if (buscarPorTitulo()) {
+      int id = inNum("Introduce la id del libro a borrar: ");
 
-    System.out.println("Estas seguro que lo quieres eliminar?");
+      System.out.println("¿Estas seguro de que lo quieres eliminar?");
+      System.out.println("1. Si");
+      System.out.println("2. No");
+      int opcion = inNum("Introduce tu opción: ");
 
-    System.out.println("1. Si");
-    System.out.println("2. No");
-
-    int opcion = sc.nextInt();
-
-    if (opcion == 1) {
-      biblioteca.borradoLibro(id);
-    } else {
-      System.out.println("El libro no se ha borrado");
+      if (opcion == 1) {
+        biblioteca.borradoLibro(id);
+      } else {
+        System.out.println("El libro no se ha borrado.");
+      }
     }
+
   }
 
   public static void menu() {
-
+    System.out.println("****************************************");
+    System.out.println("              BIBLIOTECA");
+    System.out.println("****************************************");
     System.out.println("1. Ver todos los libros");
     System.out.println("2. Buscar libro por Id");
     System.out.println("3. Buscar libro por titulo");
@@ -214,5 +228,24 @@ class App {
     System.out.println("5. Modificar libro");
     System.out.println("6. Borrar libro");
     System.out.println("0. Salir");
+
+  }
+
+  /**
+   *Método que controla los inputs numéticos.
+   * 
+   * @param texto
+   * @return
+   */
+  public static int inNum(String texto) {
+    int opcion = -1;
+    System.out.print(texto);
+    try {
+      var leido = sc.nextLine();
+      opcion = Integer.parseInt(leido);
+    } catch (Exception e) {
+      System.out.println("El valor introducido no es valido");
+    }
+    return opcion;
   }
 }

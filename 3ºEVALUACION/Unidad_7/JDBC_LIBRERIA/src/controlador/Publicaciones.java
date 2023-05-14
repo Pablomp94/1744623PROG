@@ -63,6 +63,7 @@ public class Publicaciones {
     int id = repoLibros.getProximoId();
     var libro = new Publication(id, titulo, fecha, editorial);
     repoLibros.insertar(libro);
+
     repoLibros.grabarRepositorio();
   }
 
@@ -90,7 +91,9 @@ public class Publicaciones {
    *Esta función de Java muestra el repositorio de libros.
    */
   public void verRepositorio() {
-    System.out.println(repoLibros.getRepositorio());
+    for(Publication p : repoLibros.getRepositorio()){
+      System.out.println(p.toString());
+    }
   }
 
   /**
@@ -105,8 +108,17 @@ public class Publicaciones {
    *Esta función de Java elimina un libro de un repositorio en función de su ID.
    *
    *@param id El parámetro "id" es un número entero que representa el identificador único de un libro.
+   * Samuel: Aunque no me gusta esta forma de hacerlo (yo lo he hecho de otra forma), considero que es más facil de 
+   * entender esta.
+   * 
+   * Primero guardo los cambios, con el arrayList modificado.
+   * Segundo lo borro y cargo otra vez los datos.
    */
   public void borradoLibro(Integer id) {
     repoLibros.borrar(id);
+    guardar();
+    repoLibros.borrarArray();
+    repoLibros.cargarDatos();
+    guardar();
   }
 }
