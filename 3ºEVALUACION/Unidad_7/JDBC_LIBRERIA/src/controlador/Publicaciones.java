@@ -85,6 +85,7 @@ public class Publicaciones {
         fecha , editorial);*/
     //repoLibros.modificar(id, libro);
     repoLibros.modificar(id, titulo, fecha, editorial);
+    repoLibros.grabarRepositorio();
   }
 
   /**

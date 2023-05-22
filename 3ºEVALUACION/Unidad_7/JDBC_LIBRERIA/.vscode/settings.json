@@ -6,5 +6,9 @@
     ],
     "commentTranslate.source": "Google",
     "commentTranslate.hover.enabled": true,
-    "commentTranslate.targetLanguage": "es"
+    "commentTranslate.targetLanguage": "es",
+    "code-runner.showRunCommandInEditorContextMenu": false,
+    "code-runner.showRunCommandInExplorerContextMenu": false,
+    "code-runner.showRunIconInEditorTitleMenu": false,
+    "code-runner.showStopIconInEditorTitleMenu": false
 }
